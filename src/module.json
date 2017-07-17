@@ -1,0 +1,13 @@
+{
+    "name": "Uploads",
+    "slug": "uploads",
+    "type":"core",
+    "version": "1.0",
+    "author":"Terakyan",
+    "title":"Uploads",
+    "author_site":"http://dev.bootydev.co.uk/",
+    "description": "This is the description for the Uploads module.",
+    "enabled": true,
+    "created_at": "19-01-2017 19:24",
+    "tables":[]
+}

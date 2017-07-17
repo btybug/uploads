@@ -1,0 +1,35 @@
+{
+  "vartanush_58865e40b3f5e": {
+    "type": "plugin",
+    "name": "vartanush",
+    "module": "58865e40b3f5e",
+    "variations": {
+      "administrator": [],
+      "superadmin": [],
+      "user": []
+    },
+    "slug": "vartanush_58865e40b3f5e"
+  },
+  "vartanu_58865e40b3f5e": {
+    "type": "plugin",
+    "name": "vartanush",
+    "module": "58865e40b3f5e",
+    "variations": {
+      "administrator": [],
+      "superadmin": [],
+      "user": []
+    },
+    "slug": "vartanu_58865e40b3f5e"
+  },
+  "vartanus_58865e40b3f5e": {
+    "type": "plugin",
+    "name": "vartanush",
+    "module": "58865e40b3f5e",
+    "variations": {
+      "administrator": [],
+      "superadmin": [],
+      "user": []
+    },
+    "slug": "vartanus_58865e40b3f5e"
+  }
+}

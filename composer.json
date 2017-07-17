@@ -1,0 +1,16 @@
+{
+    "name": "sahakavatar/uploads",
+    "description": "uploads description",
+    "authors": [
+        {
+            "name": "Eduard",
+            "email": "edo.terakyan@gmail.com"
+        }
+    ],
+    "require": {},
+	"autoload": {
+        "psr-4": {
+            "sahakavatar\\uploads\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Menu",
+  "items": [
+    {
+      "title": "General View",
+      "url": "/admin/uploads/modules/here/general",
+      "icon": ""
+    },{
+      "title": "Gears",
+      "url": "/admin/uploads/modules/here/gears",
+      "icon": ""
+    },{
+      "title": "Assets",
+      "url": "/admin/uploads/modules/here/assets",
+      "icon": ""
+    },{
+      "title": "Build",
+      "url": "/admin/uploads/modules/here/build",
+      "icon": "",
+      "childs" : ["pages","menus","urls","classify"]
+    },{
+      "title": "Permission",
+      "url": "/admin/uploads/modules/here/permission",
+      "icon": ""
+    },{
+      "title": "Code",
+      "url": "/admin/uploads/modules/here/code",
+      "icon": ""
+    },{
+      "title": "Tables & form",
+      "url": "/admin/uploads/modules/here/tables",
+      "icon": ""
+    },{
+      "title": "View Files",
+      "url": "/admin/uploads/modules/here/views",
+      "icon": ""
+    }
+  ]
+}
