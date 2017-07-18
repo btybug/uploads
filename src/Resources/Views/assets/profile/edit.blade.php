@@ -6,7 +6,7 @@
                 <span class="module_icon_main"></span>
 
                 <span class="module_icon_main_text">
-                    {!! Form::select('styles',\App\Modules\Resources\Models\Styles::$stylesTypes,$type,['class' => 'form-control select-type']) !!}
+                    {!! Form::select('styles',\Sahakavatar\Resources\Models\Styles::$stylesTypes,$type,['class' => 'form-control select-type']) !!}
                 </span>
             </h3>
             <hr>

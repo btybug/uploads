@@ -1,10 +1,10 @@
-<?php namespace App\Modules\Uploads\Http\Controllers;
+<?php namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\CmsItemReader;
 use App\Core\CmsItemUploader;
 use App\Http\Controllers\Controller;
 use App\Models\Templates\Sections;
-use App\Modules\Modules\Models\AdminPages;
+use Sahakavatar\Modules\Models\AdminPages;
 use File;
 use Illuminate\Http\Request;
 use Resources;

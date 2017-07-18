@@ -9,7 +9,7 @@
  *
  */
 
-namespace App\Modules\Uploads\Models;
+namespace Sahakavatar\Uploads\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -34,13 +34,13 @@ class Profiles extends Model
 
     public function styles()
     {
-        return $this->belongsToMany('App\Modules\Uploads\Models\StyleItems', 'profile_styles',
+        return $this->belongsToMany('Sahakavatar\Uploads\Models\StyleItems', 'profile_styles',
             'profile_id', 'style_item_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\Modules\Users\User','user_id','id');
+        return $this->belongsTo('Sahakavatar\Users\User','user_id','id');
     }
 
     protected static function boot ()

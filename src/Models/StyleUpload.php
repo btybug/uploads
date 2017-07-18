@@ -9,7 +9,7 @@
  *
  */
 
-namespace App\Modules\Uploads\Models;
+namespace Sahakavatar\Uploads\Models;
 
 use Illuminate\Http\Request;
 use App\helpers\helpers;
@@ -17,7 +17,7 @@ use Zipper,File;
 
 /**
  * Class TplUpload
- * @package App\Modules\Packeges\Models
+ * @package Sahakavatar\Packeges\Models
  */
 class StyleUpload
 {

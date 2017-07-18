@@ -9,7 +9,7 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\CmsItemReader;
 use App\Core\CmsItemUploader;
@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 
 /**
  * Class ModulesController
- * @package App\Modules\Modules\Http\Controllers
+ * @package Sahakavatar\Modules\Http\Controllers
  */
 class MainBodyController extends Controller
 {

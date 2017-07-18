@@ -9,24 +9,24 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\helpers\helpers;
 use App\Http\Controllers\Controller;
 use App\Models\ContentLayouts\ContentLayouts;
 use App\Models\ExtraModules\Structures;
 use App\Models\Templates\Units;
-use App\Modules\Modules\Models\AdminPages;
-use App\Modules\Modules\Models\Routes;
-use App\Modules\Uploads\Models\Upload;
-use App\Modules\Uploads\Models\Validation as validateUpl;
-use App\Modules\Users\Models\Roles;
+use Sahakavatar\Modules\Models\AdminPages;
+use Sahakavatar\Modules\Models\Routes;
+use Sahakavatar\Uploads\Models\Upload;
+use Sahakavatar\Uploads\Models\Validation as validateUpl;
+use Sahakavatar\Users\Models\Roles;
 use File;
 use Illuminate\Http\Request;
 
 /**
  * Class ModulesController
- * @package App\Modules\Modules\Http\Controllers
+ * @package Sahakavatar\Modules\Http\Controllers
  */
 class ModulesSettingsController extends Controller
 {

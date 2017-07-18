@@ -9,13 +9,13 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\helpers\helpers;
 use App\Http\Controllers\Controller;
-use App\Modules\Uploads\Models\Profiles;
-use App\Modules\Uploads\Models\StyleItems;
-use App\Modules\Uploads\Models\Styles;
+use Sahakavatar\Uploads\Models\Profiles;
+use Sahakavatar\Uploads\Models\StyleItems;
+use Sahakavatar\Uploads\Models\Styles;
 use Datatables;
 use File,View,Validator;
 use Illuminate\Http\Request;

@@ -9,7 +9,7 @@
  *
  */
 
-namespace App\Modules\Uploads\Models;
+namespace Sahakavatar\Uploads\Models;
 
 use App\helpers\helpers;
 use App\Models\ExtraModules\Modules;
@@ -22,7 +22,7 @@ use Zipper;
 
 /**
  * Class Upload
- * @package App\Modules\Modules\Models
+ * @package Sahakavatar\Modules\Models
  */
 class Upload
 {

@@ -9,14 +9,14 @@
  *
  */
 
-namespace App\Modules\Uploads\Models;
+namespace Sahakavatar\Uploads\Models;
 
 use App\helpers\helpers;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class StyleItems
- * @package App\Modules\Resources\Models
+ * @package Sahakavatar\Resources\Models
  */
 class Style extends Model
 {
@@ -132,7 +132,7 @@ class Style extends Model
      */
     public function classe ()
     {
-        return $this->belongsTo('App\Modules\Uploads\Models\Styles', 'style_id');
+        return $this->belongsTo('Sahakavatar\Uploads\Models\Styles', 'style_id');
     }
     public static function getDemoHtml( $key, $class){
 

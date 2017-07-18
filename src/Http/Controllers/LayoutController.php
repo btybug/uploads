@@ -9,7 +9,7 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\helpers\helpers;
 use App\Http\Controllers\Controller;
@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 
 /**
  * Class ModulesController
- * @package App\Modules\Modules\Http\Controllers
+ * @package Sahakavatar\Modules\Http\Controllers
  */
 class LayoutController extends Controller
 {

@@ -9,11 +9,11 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Resources\Models\Files\FilesBB;
-use App\Modules\Resources\Models\Files\FileUpload;
+use Sahakavatar\Resources\Models\Files\FilesBB;
+use Sahakavatar\Resources\Models\Files\FileUpload;
 use Datatables;
 use File,View;
 use Illuminate\Http\Request;

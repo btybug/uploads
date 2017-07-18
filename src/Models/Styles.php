@@ -16,13 +16,13 @@
  * Time: 10:55 PM
  */
 
-namespace App\Modules\Uploads\Models;
+namespace Sahakavatar\Uploads\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Styles
- * @package App\Modules\Resources\Models
+ * @package Sahakavatar\Resources\Models
  */
 class Styles extends Model
 {
@@ -65,7 +65,7 @@ class Styles extends Model
      */
     public function items ()
     {
-        return $this->hasMany('App\Modules\Uploads\Models\StyleItems', 'style_id');
+        return $this->hasMany('Sahakavatar\Uploads\Models\StyleItems', 'style_id');
     }
 
 

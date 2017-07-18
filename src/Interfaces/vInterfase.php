@@ -9,11 +9,11 @@
  *
  */
 
-namespace App\Modules\Uploads\Interfaces;
+namespace Sahakavatar\Uploads\Interfaces;
 
 /**
  * Interface vInterfase
- * @package App\Modules\Packeges\Interfases
+ * @package Sahakavatar\Packeges\Interfases
  */
 interface vInterfase
 {

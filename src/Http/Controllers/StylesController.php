@@ -9,15 +9,15 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\helpers\dbhelper;
 use App\helpers\helpers;
 use App\Http\Controllers\Controller;
-use App\Modules\Uploads\Models\Style;
-use App\Modules\Uploads\Models\StyleItems;
-use App\Modules\Uploads\Models\Styles;
-use App\Modules\Uploads\Models\StyleUpload;
+use Sahakavatar\Uploads\Models\Style;
+use Sahakavatar\Uploads\Models\StyleItems;
+use Sahakavatar\Uploads\Models\Styles;
+use Sahakavatar\Uploads\Models\StyleUpload;
 use Datatables;
 use File;
 use Illuminate\Http\Request;
@@ -27,7 +27,7 @@ use View;
 
 /**
  * Class StylesController
- * @package App\Modules\Assets\Http\Controllers
+ * @package Sahakavatar\Assets\Http\Controllers
  */
 class StylesController extends Controller
 {

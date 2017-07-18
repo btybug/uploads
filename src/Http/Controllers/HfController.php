@@ -9,7 +9,7 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\CmsItemReader;
 use App\Core\CmsItemUploader;
@@ -22,15 +22,15 @@ use App\Models\Templates\Templates;
 use App\Models\Templates\TplVariations;
 use App\Models\Templates\UiElements;
 use App\Models\Themes\Themes;
-use App\Modules\Create\Models\Corepage;
+use Sahakavatar\Create\Models\Corepage;
 use Illuminate\Http\Request;
-use App\Modules\Settings\Models\Template;
+use Sahakavatar\Settings\Models\Template;
 use App\helpers\helpers;
 use App\helpers\dbhelper;
-use App\Modules\Settings\Models\TemplateVariations;
+use Sahakavatar\Settings\Models\TemplateVariations;
 use App\Models\Templates\Templates as Tpl;
-use App\Modules\Settings\Models\TplUpload;
-use App\Modules\Resources\Models\Validation as validateUpl;
+use Sahakavatar\Settings\Models\TplUpload;
+use Sahakavatar\Resources\Models\Validation as validateUpl;
 use Input, Session, File, Zipper, View, Auth,
     Validator,
     Datatables,
@@ -39,7 +39,7 @@ use Input, Session, File, Zipper, View, Auth,
 /**
  * Class TemplateController
  *
- * @package App\Modules\Packeges\Http\Controllers
+ * @package Sahakavatar\Packeges\Http\Controllers
  */
 class HfController extends Controller
 {

@@ -9,16 +9,16 @@
  *
  */
 
-namespace App\Modules\Uploads\Models;
+namespace Sahakavatar\Uploads\Models;
 
 use Validator;
-use App\Modules\Uploads\Interfaces\vInterfase;
+use Sahakavatar\Uploads\Interfaces\vInterfase;
 use File;
 
 
 /**
  * Class Validation
- * @package App\Modules\Packeges\Models
+ * @package Sahakavatar\Packeges\Models
  */
 class Validation implements vInterfase
 {

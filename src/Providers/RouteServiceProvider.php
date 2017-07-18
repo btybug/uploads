@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Uploads\Providers;
+namespace Sahakavatar\Uploads\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Modules\Uploads\Http\Controllers';
+    protected $namespace = 'Sahakavatar\Uploads\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -60,7 +60,7 @@ class RouteServiceProvider extends ServiceProvider
                 'prefix' => 'admin/uploads',
                 'namespace' => $this->namespace,
             ], function ($router) {
-                require module_path('uploads', 'Routes/web.php');
+                require __DIR__.'/../Routes/web.php';
             });
         });
     }
@@ -79,7 +79,7 @@ class RouteServiceProvider extends ServiceProvider
             'namespace'  => $this->namespace,
             'prefix'     => 'api',
         ], function ($router) {
-            require module_path('uploads', 'Routes/api.php');
+            require __DIR__.'/../Routes/web.php';
         });
     }
 }

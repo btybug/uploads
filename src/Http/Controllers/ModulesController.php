@@ -9,24 +9,24 @@
  *
  */
 
-namespace App\Modules\Uploads\Http\Controllers;
+namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\FormRegister;
 use App\helpers\helpers;
 use App\Http\Controllers\Controller;
 use App\Models\ExtraModules\Structures;
-use App\Modules\Console\Models\Menu;
+use Sahakavatar\Console\Models\Menu;
 use App\Models\AdminPages;
-use App\Modules\Modules\Models\Routes;
-use App\Modules\Uploads\Models\Upload;
-use App\Modules\Uploads\Models\Validation as validateUpl;
+use Sahakavatar\Modules\Models\Routes;
+use Sahakavatar\Uploads\Models\Upload;
+use Sahakavatar\Uploads\Models\Validation as validateUpl;
 use File;
 use Illuminate\Http\Request;
 use App\Core\CmsItemRegister;
 
 /**
  * Class ModulesController
- * @package App\Modules\Modules\Http\Controllers
+ * @package Sahakavatar\Modules\Http\Controllers
  */
 class ModulesController extends Controller
 {
@@ -186,7 +186,7 @@ class ModulesController extends Controller
                         $structure = Structures::getStructure($result['data']['module']);
                         if ($structure) {
                             if ($structure->type == 'core') {
-                                $autoloadClass = 'App\Modules\\' . ucfirst($result['data']['module']) . '\Plugins\\' . $result['data']['namespace'] . '\\' . $result['data']['autoload'];
+                                $autoloadClass = 'Sahakavatar\\' . ucfirst($result['data']['module']) . '\Plugins\\' . $result['data']['namespace'] . '\\' . $result['data']['autoload'];
                             } else {
                                 $autoloadClass = 'App\ExtraModules\\' . ucfirst($result['data']['module']) . '\Plugins\\' . $result['data']['namespace'] . '\\' . $result['data']['autoload'];
                             }

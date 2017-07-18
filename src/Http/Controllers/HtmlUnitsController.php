@@ -1,11 +1,11 @@
-<?php namespace App\Modules\Uploads\Http\Controllers;
+<?php namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\CmsItemReader;
 use App\Core\CmsItemUploader;
 use App\Http\Controllers\Controller;
 use App\Models\Templates\Units;
-use App\Modules\Resources\Models\TemplateVariations as TemplateVariations;
-use App\Modules\Resources\Models\Validation as validateUpl;
+use Sahakavatar\Resources\Models\TemplateVariations as TemplateVariations;
+use Sahakavatar\Resources\Models\Validation as validateUpl;
 use File;
 use Illuminate\Http\Request;
 use Resources;

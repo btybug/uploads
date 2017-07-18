@@ -1,4 +1,4 @@
-<?php namespace App\Modules\Uploads\Http\Controllers;
+<?php namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\CmsItemReader;
 use App\Core\CmsItemUploader;
@@ -13,7 +13,7 @@ use View;
 
 /**
  * Class SectionsController
- * @package App\Modules\Console\Http\Controllers
+ * @package Sahakavatar\Console\Http\Controllers
  */
 class PageSectionsController extends Controller
 {
