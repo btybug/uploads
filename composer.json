@@ -10,7 +10,7 @@
     "require": {},
 	"autoload": {
         "psr-4": {
-            "sahakavatar\\uploads\\": "src/"
+            "Sahakavatar\\Uploads\\": "src/"
         }
     }
 }
