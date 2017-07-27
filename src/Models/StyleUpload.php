@@ -12,7 +12,7 @@
 namespace Sahakavatar\Uploads\Models;
 
 use Illuminate\Http\Request;
-use App\helpers\helpers;
+use Sahakavatar\Cms\Helpers\helpers;
 use Zipper,File;
 
 /**

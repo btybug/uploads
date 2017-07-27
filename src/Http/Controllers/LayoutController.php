@@ -11,7 +11,7 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\helpers\helpers;
+use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
 use App\Models\ContentLayouts\ContentLayouts;
 use App\Models\Themes\Themes;

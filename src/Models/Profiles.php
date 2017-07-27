@@ -40,7 +40,7 @@ class Profiles extends Model
 
     public function user()
     {
-        return $this->belongsTo('Sahakavatar\Users\User','user_id','id');
+        return $this->belongsTo('Sahakavatar\User\User','user_id','id');
     }
 
     protected static function boot ()

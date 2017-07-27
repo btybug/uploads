@@ -11,7 +11,7 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\helpers\helpers;
+use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
 use App\Models\ContentLayouts\ContentLayouts;
 use App\Models\ExtraModules\Structures;
@@ -20,7 +20,7 @@ use Sahakavatar\Modules\Models\AdminPages;
 use Sahakavatar\Modules\Models\Routes;
 use Sahakavatar\Uploads\Models\Upload;
 use Sahakavatar\Uploads\Models\Validation as validateUpl;
-use Sahakavatar\Users\Models\Roles;
+use Sahakavatar\User\Models\Roles;
 use File;
 use Illuminate\Http\Request;
 

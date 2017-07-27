@@ -11,8 +11,8 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\helpers\dbhelper;
-use App\helpers\helpers;
+use Sahakavatar\Cms\Helpers\helpers;
+use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
 use Sahakavatar\Uploads\Models\Style;
 use Sahakavatar\Uploads\Models\StyleItems;

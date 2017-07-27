@@ -12,7 +12,7 @@
 namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\FormRegister;
-use App\helpers\helpers;
+use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
 use App\Models\ExtraModules\Structures;
 use Sahakavatar\Console\Models\Menu;
