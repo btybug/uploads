@@ -135,7 +135,7 @@ Route::group(['prefix' => 'gears'], function () {
         Route::post('/delete-variation', 'UnitsController@postDeleteVariation');
         Route::get('/test/{slug?}', 'UnitsController@test');
         Route::get('/settings/{slug?}', 'UnitsController@getSettings');
-        Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe');
+            Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe');
         Route::post('/settings/{id}/{save?}', 'UnitsController@postSettings');
         Route::post('/delete', 'UnitsController@postDelete');
     });

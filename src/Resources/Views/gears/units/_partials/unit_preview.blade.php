@@ -1,13 +1,13 @@
 {!! HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css') !!}
-{!! HTML::style("/resources/assets/js/font-awesome/css/font-awesome.min.css") !!}
-{!! HTML::style("resources/assets/js/jqueryui/css/jquery-ui.min.css") !!}
-{!! HTML::script('/resources/assets/js/jquery-2.1.4.min.js') !!}
-{!! HTML::script('/resources/assets/js/bootstrap.min.js') !!}
-{!! HTML::style("resources/assets/js/animate/css/animate.css") !!}
-{!! HTML::style("resources/assets/css/preview-template.css") !!}
-{!! HTML::style("resources/assets/css/core_styles.css") !!}
-{!! HTML::style("resources/assets/css/builder-tool.css") !!}
-{!! HTML::style('/resources/assets/css/jquery.tagit.css') !!}
+{!! HTML::style("/css/font-awesome/css/font-awesome.min.css") !!}
+{!! HTML::style("/js/jquery-ui/jquery-ui.min.css") !!}
+{!! HTML::script('/js/jquery-2.1.4.min.js') !!}
+{!! HTML::script('/js/bootstrap.min.js') !!}
+{!! HTML::style("/css/animate.css") !!}
+{!! HTML::style("/css/preview-template.css") !!}
+{!! HTML::style("/css/core_styles.css") !!}
+{!! HTML::style("/css/builder-tool.css") !!}
+{!! HTML::style('/css/jquery.tagit.css') !!}
 
 <body>
 {!! csrf_field() !!}
@@ -37,10 +37,10 @@
 <button data-settingaction="save" class="hide" id="settings_savebtn"></button>
 <input type="hidden"  id="hidden_data" value='{!!$settings_json!!}'>
 <body>
-{!! HTML::script("/resources/assets/js/jqueryui/js/jquery-ui.min.js") !!}
-{!! HTML::script("resources/assets/js/UiElements/bb_styles.js?v.5") !!}
-{!! HTML::script("resources/assets/js/UiElements/ui-preview-setting.js") !!}
-{!! HTML::script("resources/assets/js/UiElements/ui-settings.js") !!}
+{!! HTML::script("/js/jqueryui/js/jquery-ui.min.js") !!}
+{!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
+{!! HTML::script("/js/UiElements/ui-preview-setting.js") !!}
+{!! HTML::script("/js/UiElements/ui-settings.js") !!}
 <script src="{!! url('public/fw.js') !!}" type="text/javascript"></script>
 {!! HTML::script('/public/js/tag-it.js') !!}
 {!! BBFrameworkJs() !!}

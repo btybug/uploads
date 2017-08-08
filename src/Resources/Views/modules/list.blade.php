@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('cms::layouts.admin')
 @section('content')
-    {!! HTML::style('app/Modules/Modules/Resources/assets/css/new-store.css') !!}
+    {!! HTML::style('app/Modules/Modules/css/new-store.css') !!}
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cms_module_list">
@@ -43,7 +43,7 @@
                     @if($module)
                     <div class="row module_detail">
                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                            <img src="{!! url('resources/assets/images/module.jpg') !!}" alt="" class="img-rounded img-responsive"/>
+                            <img src="{!! url('/images/module.jpg') !!}" alt="" class="img-rounded img-responsive"/>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="module-title">{!! $module->name !!}</div>
@@ -132,11 +132,11 @@
     </div>
 @stop
 @section('CSS')
-    {!! HTML::style('resources/assets/js/bootstrap-switch/css/bootstrap-switch.min.css') !!}
-    {!! HTML::style('app/Modules/Modules/Resources/assets/css/store.css') !!}
+    {!! HTML::style('/js/bootstrap-switch/css/bootstrap-switch.min.css') !!}
+    {!! HTML::style('app/Modules/Modules/css/store.css') !!}
 @stop
 @section('JS')
-    {!! HTML::script('resources/assets/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
     <script>
 
         Dropzone.options.myAwesomeDropzone = {

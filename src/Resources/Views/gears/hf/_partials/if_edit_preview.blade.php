@@ -1,13 +1,13 @@
-{!! HTML::script("resources/assets/js/jquery-2.1.4.min.js") !!}
-{!! HTML::script("resources/assets/js/jqueryui/js/jquery-ui.min.js") !!}
-{!! HTML::script("resources/assets/js/bootstrap.min.js") !!}
-{!! HTML::script("resources/assets/js/UiElements/bb_styles.js?v.5") !!}
-{!! HTML::style("/resources/assets/css/bootstrap.css") !!}
-{!! HTML::style("/resources/assets/js/font-awesome/css/font-awesome.min.css") !!}
-{!! HTML::style("/resources/assets/js/jqueryui/css/jquery-ui.min.css") !!}
-{!! HTML::style('/resources/assets/css/preview-template.css') !!}
-{!! HTML::style("resources/assets/css/core_styles.css") !!}
-{!! HTML::style("resources/assets/css/builder-tool.css") !!}
+{!! HTML::script("/js/jquery-2.1.4.min.js") !!}
+{!! HTML::script("/js/jqueryui/js/jquery-ui.min.js") !!}
+{!! HTML::script("/js/bootstrap.min.js") !!}
+{!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
+{!! HTML::style("/css/bootstrap.css") !!}
+{!! HTML::style("/js/font-awesome/css/font-awesome.min.css") !!}
+{!! HTML::style("/js/jqueryui/css/jquery-ui.min.css") !!}
+{!! HTML::style('/css/preview-template.css') !!}
+{!! HTML::style("/css/core_styles.css") !!}
+{!! HTML::style("/css/builder-tool.css") !!}
 
 
 {!! csrf_field() !!}
@@ -26,12 +26,12 @@
 </div>
 
 @include('resources::assests.magicModal')
-{!! HTML::script("resources/assets/js/jquery-2.1.4.min.js") !!}
-{!! HTML::script("resources/assets/js/jqueryui/js/jquery-ui.min.js") !!}
-{!! HTML::script("resources/assets/js/bootstrap.min.js") !!}
-{!! HTML::script("resources/assets/js/UiElements/bb_styles.js?v.5") !!}
-{!! HTML::script("resources/assets/js/UiElements/ui-preview-setting.js") !!}
-{!! HTML::script("resources/assets/js/UiElements/ui-settings.js") !!}
+{!! HTML::script("/js/jquery-2.1.4.min.js") !!}
+{!! HTML::script("/js/jqueryui/js/jquery-ui.min.js") !!}
+{!! HTML::script("/js/bootstrap.min.js") !!}
+{!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
+{!! HTML::script("/js/UiElements/ui-preview-setting.js") !!}
+{!! HTML::script("/js/UiElements/ui-settings.js") !!}
 
 
 

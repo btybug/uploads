@@ -11,24 +11,23 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\Core\CmsItemReader;
-use App\Core\CmsItemUploader;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
 use App\Http\Controllers\Controller;
 use App\Models\ExtraModules\Modules;
 use App\Models\ExtraModules\Structures;
 use App\Models\Setting;
 use App\Models\Taxonomy;
-use App\Models\Templates\Templates;
-use App\Models\Templates\TplVariations;
-use App\Models\Templates\UiElements;
+use Sahakavatar\Cms\Models\Templates;
+use Sahakavatar\Cms\Models\TplVariations;
+use Sahakavatar\Cms\Models\UiElements;
 use App\Models\Themes\Themes;
 use Sahakavatar\Create\Models\Corepage;
 use Illuminate\Http\Request;
 use Sahakavatar\Settings\Models\Template;
 use Sahakavatar\Cms\Helpers\helpers;
-use Sahakavatar\Cms\Helpers\helpers;
 use Sahakavatar\Settings\Models\TemplateVariations;
-use App\Models\Templates\Templates as Tpl;
+use Sahakavatar\Cms\Models\Templates as Tpl;
 use Sahakavatar\Settings\Models\TplUpload;
 use Sahakavatar\Resources\Models\Validation as validateUpl;
 use Input, Session, File, Zipper, View, Auth,

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('cms::layouts.admin')
 @section('content')
     <div class="main_lay_cont">
         <div class="row for_title_row">
@@ -27,7 +27,7 @@
     </div>
 @stop
 @section('CSS')
-    {!! HTML::style('resources/assets/css/backend_layouts_style.css') !!}
+    {!! HTML::style('/css/backend_layouts_style.css') !!}
 @stop
 @section('JS')
 @stop

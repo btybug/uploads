@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('cms::layouts.admin')
 @section('content')
     <div class="row list_222">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cms_module_list module_list_1">
@@ -30,7 +30,7 @@
                 @endif
             </ul>
         </div>
-        {!! HTML::image('resources/assets/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
+        {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
         <div class="tpl-list">
             <button class="btn btn-primary select-">
                 Select Item
@@ -41,11 +41,11 @@
     @include('resources::assests.deleteModal',['title'=>'Delete Style'])
 @stop
 @section('CSS')
-    {!! HTML::style('app/Modules/Resources/Resources/assets/css/new-store.css') !!}
-    {!! HTML::style('app/Modules/Resources/Resources/assets/css/style_cube.css') !!}
+    {!! HTML::style('app/Modules/Resources/css/new-store.css') !!}
+    {!! HTML::style('app/Modules/Resources/css/style_cube.css') !!}
 @stop
 @section('JS')
-    {!! HTML::script('resources/assets/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function () {

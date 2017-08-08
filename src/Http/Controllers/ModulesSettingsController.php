@@ -13,9 +13,9 @@ namespace Sahakavatar\Uploads\Http\Controllers;
 
 use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
-use App\Models\ContentLayouts\ContentLayouts;
+use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use App\Models\ExtraModules\Structures;
-use App\Models\Templates\Units;
+use Sahakavatar\Cms\Models\Templates\Units;
 use Sahakavatar\Modules\Models\AdminPages;
 use Sahakavatar\Modules\Models\Routes;
 use Sahakavatar\Uploads\Models\Upload;

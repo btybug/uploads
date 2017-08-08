@@ -1,10 +1,10 @@
 <?php namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\Core\CmsItemReader;
-use App\Core\CmsItemUploader;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
 use App\Http\Controllers\Controller;
-use App\Models\Templates\Sections;
-use App\Models\ContentLayouts\ContentLayouts;
+use Sahakavatar\Cms\Models\Sections;
+use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use File;
 use Illuminate\Http\Request;
 use Resources;

@@ -1,6 +1,6 @@
 @if($currentPageSection)
     <div class="layout clearfix">
-        <img src="/app/Modules/Resources/Resources/assets/img/layout-img.jpg" alt="" class="layoutImg">
+        <img src="/app/Modules/Resources/img/layout-img.jpg" alt="" class="layoutImg">
         <div class="layoutData">
             <div class="layoutCol">
                 <h4>{!! $currentPageSection->title !!}</h4>

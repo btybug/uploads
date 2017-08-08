@@ -29,4 +29,4 @@
     </div>
 </div>
 
-{!! Html::style('app/Modules/Resources/Resources/assets/css/settings.css') !!}
+{!! Html::style('app/Modules/Resources/css/settings.css') !!}

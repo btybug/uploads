@@ -1,7 +1,7 @@
-@extends('layouts.mTabs',['index'=>'uploads_assets'])
+@extends('cms::layouts.mTabs',['index'=>'uploads_assets'])
         <!-- Nav tabs -->
 @section('tab')
-    {!! HTML::style('app/Modules/Resources/Resources/assets/css/new-store.css') !!}
+    {!! HTML::style('app/Modules/Resources/css/new-store.css') !!}
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cms_module_list">
@@ -68,7 +68,7 @@
             </div>
             <div class="templates-list  m-t-20 m-b-10">
                 <div class="row templates m-b-10">
-                    {!! HTML::image('resources/assets/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
+                    {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
                     <div class="raw tpl-list">
                         @include('uploads::assets.files._partials.list_cube')
                     </div>
@@ -113,8 +113,8 @@
     </style>
 @stop
 @section('JS')
-    {!! HTML::script("resources/assets/js/UiElements/bb_styles.js?v.5") !!}
-    {!! HTML::script('resources/assets/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
+    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function() {

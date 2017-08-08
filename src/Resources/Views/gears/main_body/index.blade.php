@@ -1,6 +1,6 @@
-@extends('layouts.mTabs',['index'=>'frontend_gears'])
+@extends('cms::layouts.mTabs',['index'=>'frontend_gears'])
 @section('tab')
-    {!! HTML::style('app/Modules/Uploads/Resources/assets/css/new-store.css') !!}
+    {!! HTML::style('app/Modules/Uploads/css/new-store.css') !!}
     <div class="row">
         <button class="btn btn-info btn-sm pull-right btnUploadWidgets m-r-15 m-b-15" type="button" data-toggle="modal"
                 data-target="#uploadfile">
@@ -105,7 +105,7 @@
 
             <div class="templates-list  m-t-20 m-b-10">
                 <div class="row m-b-10">
-                    {!! HTML::image('resources/assets/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
+                    {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
                     <div class="raw tpl-list">
                         @if($currentMainBody)
                             @include('uploads::gears.main_body._partials.variations')
@@ -154,11 +154,11 @@
             </div>
         </div>
     </div>
-    @include('_partials.delete_modal')
+    @include('cms::_partials.delete_modal')
     @include('resources::assests.deleteModal',['title'=>'Delete Widget'])
 @stop
 @section('CSS')
-    {!! HTML::style('/resources/assets/js/bootstrap-select/css/bootstrap-select.min.css') !!}
+    {!! HTML::style('/js/bootstrap-select/css/bootstrap-select.min.css') !!}
     <style>
         .child-tpl {
             width: 95% !important;
@@ -175,8 +175,8 @@
     </style>
 @stop
 @section('JS')
-    {!! HTML::script('resources/assets/js/dropzone/js/dropzone.js') !!}
-    {!! HTML::script('/resources/assets/js/bootstrap-select/js/bootstrap-select.min.js') !!}
+    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script('/js/bootstrap-select/js/bootstrap-select.min.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function() {

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('cms::layouts.admin')
 @section('content')
 
 
@@ -42,7 +42,7 @@
 
 @stop
 @section('CSS')
-    {!! HTML::style('resources/assets/css/backend_layouts_style.css') !!}
+    {!! HTML::style('/css/backend_layouts_style.css') !!}
     <style>
         .pages.col-md-5 {
             border: 1px solid black;

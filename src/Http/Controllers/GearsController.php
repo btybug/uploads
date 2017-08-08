@@ -13,7 +13,7 @@ namespace Sahakavatar\Uploads\Http\Controllers;
 
 use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
-use App\Models\Templates\Widgets;
+use Sahakavatar\Cms\Models\Widgets;
 use Sahakavatar\Resources\Models\UiUpload;
 use File;
 use Illuminate\Http\Request;

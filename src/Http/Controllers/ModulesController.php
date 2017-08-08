@@ -22,7 +22,7 @@ use Sahakavatar\Uploads\Models\Upload;
 use Sahakavatar\Uploads\Models\Validation as validateUpl;
 use File;
 use Illuminate\Http\Request;
-use App\Core\CmsItemRegister;
+use Sahakavatar\Cms\Services\CmsItemRegister;
 
 /**
  * Class ModulesController

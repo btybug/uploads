@@ -1,4 +1,4 @@
-@extends('layouts.mTabs',['index'=>'uploads_assets'])
+@extends('cms::layouts.mTabs',['index'=>'uploads_assets'])
         <!-- Nav tabs -->
 @section('tab')
     <div class="collection_page">
@@ -79,7 +79,7 @@
 @stop
 
 @section('CSS')
-    {!! HTML::style('resources/assets/css/create_pages.css') !!}
+    {!! HTML::style('/css/create_pages.css') !!}
 @stop
 @section('JS')
     <script>

@@ -1,4 +1,4 @@
-@extends('layouts.mTabs',['index'=>'uploads_assets'])
+@extends('cms::layouts.mTabs',['index'=>'uploads_assets'])
         <!-- Nav tabs -->
 @section('tab')
     <div class="row list_222">
@@ -32,7 +32,7 @@
                 @endforeach
             </ul>
         </div>
-        {!! HTML::image('resources/assets/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
+        {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
         <div class="tpl-list col-md-9 col-lg-9">
             @include('uploads::assets.styles._partials.list_cube')
             {{--@include('uploads::assets.styles._partials.subs_list')--}}
@@ -108,11 +108,11 @@
     @include('resources::assests.deleteModal',['title'=>'Delete Style'])
 @stop
 @section('CSS')
-    {!! HTML::style('app/Modules/Resources/Resources/assets/css/new-store.css') !!}
-    {!! HTML::style('app/Modules/Resources/Resources/assets/css/style_cube.css') !!}
+    {!! HTML::style('app/Modules/Resources/css/new-store.css') !!}
+    {!! HTML::style('app/Modules/Resources/css/style_cube.css') !!}
 @stop
 @section('JS')
-    {!! HTML::script('resources/assets/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function () {

@@ -1,22 +1,14 @@
-@if($unit)
-    @foreach($unit->variations() as $ui)
-        <div id="viewType" class="col-xs-4">
+@if($units)
+    @foreach($units as $ui)
+        <div  class="col-md-4">
             <div class="row templates m-b-10 ">
                 <div class=" topRow p-l-0 p-r-0">
-                    <img src="{!! url('resources/assets/images/template-3.png')!!}" class="img-responsive"/>
+                    <img src="{!! url('/images/template-3.png')!!}" class="img-responsive"/>
                     <div class="tempalte_icon">
-                        <div><a href="{!! url('/admin/uploads/gears/units/settings', $ui->id) !!}"
-                                class="m-r-10"><i class="fa fa-pencil f-s-14"></i> </a></div>
-                        @if($ui->default == 0)
-                            <div>
-                                @if(count($unit->variations()) > 1)
-                                <a data-href="{!! url('/admin/uploads/gears/units/delete-variation') !!}" data-key="{!! $ui->id !!}" data-type="Unit Variation" class="delete-button addons-delete delete_layout"><i
-                                            class="fa fa-trash-o f-s-14 "></i></a>
-                                @endif
-                                <a href="{!! url('admin/uploads/gears/units/make-default-variation',[$ui->id,$unit->id]) !!}" class="addons-delete"><i
-                                                class="fa fa-legal f-s-14 "></i></a>
-                            </div>
-                        @endif
+
+                        <div><a href="{!! url('/admin/uploads/units/units-variations', $ui->slug) !!}"
+                                class="m-r-10"><i class="fa fa-puzzle-piece f-s-14"></i> </a></div>
+
                     </div>
                 </div>
                 {{-- <span>{{ isset($url) ? $url : '' }}</span>--}}

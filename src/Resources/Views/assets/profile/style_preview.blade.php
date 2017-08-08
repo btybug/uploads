@@ -1,9 +1,9 @@
-@extends('layouts.admin')
+@extends('cms::layouts.admin')
 
 @section('content')
     <div class="row list_222">
         <div id="msg" style="background-color: #DFF2BF; color: #4F8A10; margin: 10px 0px; text-align: center; "></div>
-        {!! HTML::image('resources/assets/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
+        {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
         <div class="tpl-list">
             @include('uploads::assets.profile._partials.list_cube')
         </div>
@@ -11,8 +11,8 @@
     @include('resources::assests.deleteModal',['title'=>'Delete Style'])
 @stop
 @section('CSS')
-    {!! HTML::style('app/Modules/Resources/Resources/assets/css/new-store.css') !!}
-    {!! HTML::style('app/Modules/Resources/Resources/assets/css/style_cube.css') !!}
+    {!! HTML::style('app/Modules/Resources/css/new-store.css') !!}
+    {!! HTML::style('app/Modules/Resources/css/style_cube.css') !!}
     <style>
         #editor {
             width: 100%;
@@ -23,8 +23,8 @@
     <style data-preview="css"></style>
 @stop
 @section('JS')
-    {!! HTML::script('resources/assets/js/dropzone/js/dropzone.js') !!}
-    {!! HTML::script("/resources/assets/js/code_editor/edit_area_full.js") !!}
+    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script("/js/code_editor/edit_area_full.js") !!}
     {!! HTML::script("https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js") !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {

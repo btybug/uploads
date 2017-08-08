@@ -44,7 +44,7 @@
                                     <div class="col-xs-12 p-l-0 p-r-0 main_div_for_styles_1">
                                         <div class="top_div_17 col-xs-12 col-md-12">
                                             <div class="for_image_17">
-                                                <img src="{!! url('app/Modules/Resources/Resources/assets/img/img_1.png') !!}"
+                                                <img src="{!! url('app/Modules/Resources/img/img_1.png') !!}"
                                                      alt="image">
                                             </div>
                                         </div>

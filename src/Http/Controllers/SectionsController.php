@@ -1,9 +1,9 @@
 <?php namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\Core\CmsItemReader;
-use App\Core\CmsItemUploader;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
 use App\Http\Controllers\Controller;
-use App\Models\Templates\Sections;
+use Sahakavatar\Cms\Models\Sections;
 use Sahakavatar\Modules\Models\AdminPages;
 use File;
 use Illuminate\Http\Request;

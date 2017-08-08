@@ -1,7 +1,7 @@
-@extends('layouts.mTabs',['index'=>'upload_gears'])
+@extends('cms::layouts.mTabs',['index'=>'upload_gears'])
 <!-- Nav tabs -->
 @section('tab')
-    {!! HTML::style('app/Modules/Uploads/Resources/assets/css/new-store.css') !!}
+    {!! HTML::style('app/Modules/Uploads/css/new-store.css') !!}
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cms_module_list">
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
                     <div class="layout clearfix">
-                        <img src="/app/Modules/Uploads/Resources/assets/img/layout-img.jpg" alt="" class="layoutImg">
+                        <img src="/app/Modules/Uploads/img/layout-img.jpg" alt="" class="layoutImg">
                         <div class="layoutData">
                             <div class="layoutCol">
                                 <h4>Layout 002</h4>
@@ -120,7 +120,7 @@
 
             <div class="templates-list  m-t-20 m-b-10">
                 <div class="row m-b-10">
-                    {!! HTML::image('resources/assets/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
+                    {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
                     <div class="raw tpl-list">
                         @include('uploads::gears._partials.list_cube')
                     </div>
@@ -165,7 +165,7 @@
     {{--@include('resources::assests.deleteModal',['title'=>'Delete Widget'])--}}
 @stop
 @section('CSS')
-    {!! HTML::style('/resources/assets/js/bootstrap-select/css/bootstrap-select.min.css') !!}
+    {!! HTML::style('/js/bootstrap-select/css/bootstrap-select.min.css') !!}
     <style>
         .child-tpl {
             width: 95% !important;
@@ -182,8 +182,8 @@
     </style>
 @stop
 @section('JS')
-    {!! HTML::script('resources/assets/js/dropzone/js/dropzone.js') !!}
-    {!! HTML::script('/resources/assets/js/bootstrap-select/js/bootstrap-select.min.js') !!}
+    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script('/js/bootstrap-select/js/bootstrap-select.min.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function() {

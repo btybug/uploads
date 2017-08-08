@@ -1,12 +1,12 @@
 {!! HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css') !!}
 {!! HTML::style("/resources/views/layouts/themes/admintheme/css/font-awesome/css/font-awesome.min.css") !!}
 
-{!! HTML::script('/resources/assets/js/jquery-2.1.4.min.js') !!}
-{!! HTML::script("resources/assets/js/jqueryui/js/jquery-ui.min.js") !!}
-{!! HTML::script('/resources/assets/js/bootstrap.min.js') !!}
-{!! HTML::style("resources/assets/js/animate/css/animate.css") !!}
-{!! HTML::style("resources/assets/css/preview-template.css") !!}
-{!! HTML::style("resources/assets/css/builder-tool.css") !!}
+{!! HTML::script('/js/jquery-2.1.4.min.js') !!}
+{!! HTML::script("/js/jqueryui/js/jquery-ui.min.js") !!}
+{!! HTML::script('/js/bootstrap.min.js') !!}
+{!! HTML::style("/js/animate/css/animate.css") !!}
+{!! HTML::style("/css/preview-template.css") !!}
+{!! HTML::style("/css/builder-tool.css") !!}
 {!! HTML::style("https://jqueryvalidation.org/files/demo/site-demos.css") !!}
 
 <body>
@@ -36,10 +36,10 @@
 <button data-settingaction="save" class="hide" id="settings_savebtn"></button>
 <input type="hidden"  id="hidden_data" value='{!!$settings_json!!}'>
 <body>
-{!! HTML::style("resources/assets/css/core_styles.css") !!}
-{!! HTML::script("resources/assets/js/UiElements/bb_styles.js?v.5") !!}
-{!! HTML::script("resources/assets/js/UiElements/ui-preview-setting.js") !!}
-{!! HTML::script("resources/assets/js/UiElements/ui-settings.js") !!}
+{!! HTML::style("/css/core_styles.css") !!}
+{!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
+{!! HTML::script("/js/UiElements/ui-preview-setting.js") !!}
+{!! HTML::script("/js/UiElements/ui-settings.js") !!}
 {!! HTML::script("https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js") !!}
 {!! HTML::script("https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js") !!}
 

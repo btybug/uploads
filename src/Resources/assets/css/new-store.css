@@ -241,10 +241,10 @@ span.module_icon_text{font-weight: normal; color: #4d4848;  font-size: 16px;}
 .paginationStyle>li.disabled>a { background-color: #f3f3f3; }
 
 .loadding { display: block; text-align: center; }
-.loadImg, .loadImgBlue { background: url(/app/Modules/Resources/Resources/assets/img/ajax-loader.gif) no-repeat 0 0; background-size: 100%; width: 100px; height: 100px; display: inline-block; }
-.loadImgBlue { background: url(/app/Modules/Resources/Resources/assets/img/ajax-loader-blue.gif); }
+.loadImg, .loadImgBlue { background: url(/app/Modules/Resources/img/ajax-loader.gif) no-repeat 0 0; background-size: 100%; width: 100px; height: 100px; display: inline-block; }
+.loadImgBlue { background: url(/app/Modules/Resources/img/ajax-loader-blue.gif); }
 
-.btnLoadmore .loadImg { background: url(/app/Modules/Resources/Resources/assets/img/ajax-loader2.gif) no-repeat 0 0; background-size: 100%; width: 25px; height: 25px; margin-right: 5px; vertical-align: middle; }
+.btnLoadmore .loadImg { background: url(/app/Modules/Resources/img/ajax-loader2.gif) no-repeat 0 0; background-size: 100%; width: 25px; height: 25px; margin-right: 5px; vertical-align: middle; }
 
 
 @media (min-width: 1200px) and (max-width: 1500px) { 

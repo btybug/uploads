@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('cms::layouts.admin')
 @section('content')
 
     <ol class="breadcrumb">
@@ -125,11 +125,11 @@
 @stop
 
 @section('CSS')
-    {!! HTML::style('/resources/assets/js/bootstrap-editable/css/bootstrap-editable.css') !!}
+    {!! HTML::style('/js/bootstrap-editable/css/bootstrap-editable.css') !!}
 @stop
 
 @section('JS')
-    {!! HTML::script('/resources/assets/js/bootstrap-editable/js/bootstrap-editable.min.js') !!}
+    {!! HTML::script('/js/bootstrap-editable/js/bootstrap-editable.min.js') !!}
 
     <script>
 

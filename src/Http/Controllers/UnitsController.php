@@ -1,9 +1,9 @@
 <?php namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\Core\CmsItemReader;
-use App\Core\CmsItemUploader;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
 use App\Http\Controllers\Controller;
-use App\Models\Templates\Units;
+use Sahakavatar\Cms\Models\Templates\Units;
 use Sahakavatar\Resources\Models\TemplateVariations as TemplateVariations;
 use Sahakavatar\Resources\Models\Validation as validateUpl;
 use File;
@@ -31,42 +31,13 @@ class UnitsController extends Controller
         $this->validateUpl = new $validateUpl;
         $this->up = config('paths.ui_elements_uplaod');
         $this->tp = config('paths.units_path');
-        $this->types = @json_decode(File::get(config('paths.unit_path') . 'configTypes.json'), 1)['types'];
-        $this->unitTypes = @json_decode(File::get(config('paths.unit_path') . 'configTypes.json'), 1)['types'];
+        $this->unitTypes = $this->types = @json_decode(File::get(config('paths.unit_path') . 'configTypes.json'), 1)['types'];
     }
 
     public function getIndex(Request $request)
     {
-        $slug = $request->get('p');
-        $type = $request->get('type');
-        $types = [];
-        $ui_elemements = null;
-        $unit = null;
-        if (count($this->unitTypes)) {
-            foreach ($this->unitTypes as $unitType) {
-                $types[$unitType['foldername']] = $unitType['title'];
-            }
-
-            $main_type = $this->unitTypes[0]['foldername'];
-            if ($type) {
-                $main_type = $type;
-            }
-
-            $ui_elemements = CmsItemReader::getAllGearsByType('units')->where('place', 'frontend')->where('type', $main_type)->run();
-            if ($slug) {
-                $unit = CmsItemReader::getAllGearsByType('units')
-                    ->where('place', 'frontend')
-                    ->where('type', $main_type)
-                    ->where('slug', $slug)
-                    ->first();
-            } elseif (count($ui_elemements)) {
-                $unit = CmsItemReader::getAllGearsByType('units')
-                    ->where('place', 'frontend')
-                    ->where('type', $main_type)
-                    ->first();
-            }
-        }
-        return view("uploads::gears.units.index", compact(['ui_elemements', 'types', 'unit', 'type']));
+        $units=Units::all()->run();
+        return view("uploads::gears.units.index", compact(['units']));
     }
 
     public function getUnitVariations($slug)
@@ -75,8 +46,7 @@ class UnitsController extends Controller
         if (!count($unit)) return redirect()->back();
         $variation = [];
         $variations = $unit->variations();
-
-        return view('resources::units.variations', compact(['unit', 'variations', 'variation'])
+        return view('uploads::gears.units.variations', compact(['unit', 'variations', 'variation'])
         );
     }
 

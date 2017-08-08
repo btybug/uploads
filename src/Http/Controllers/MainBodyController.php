@@ -11,14 +11,14 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use App\Core\CmsItemReader;
-use App\Core\CmsItemUploader;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
 use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
-use App\Models\ContentLayouts\ContentLayouts;
-use App\Models\ContentLayouts\MainBody;
-use App\Models\Templates\Templates;
-use App\Models\Templates\Widgets;
+use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
+use Sahakavatar\Cms\Models\ContentLayouts\MainBody;
+use Sahakavatar\Cms\Models\Templates;
+use Sahakavatar\Cms\Models\Widgets;
 use File;
 use Illuminate\Http\Request;
 
