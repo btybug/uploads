@@ -8,6 +8,7 @@
         }
     ],
     "type": "module",
+    "route": "uploads",
     "require": {},
 	"autoload": {
         "psr-4": {

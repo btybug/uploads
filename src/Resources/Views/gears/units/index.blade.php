@@ -1,6 +1,6 @@
-@extends('cms::layouts.mTabs',['index'=>'frontend_gears'])
+@extends('cms::layouts.admin')
 <!-- Nav tabs -->
-@section('tab')
+@section('content')
 
     <div class="row">
         <div class="col-md-12">
@@ -177,7 +177,7 @@
                 Dropzone.options.myAwesomeDropzone = {
                     init: function() {
                         this.on("success", function(file) {
-                            location.reload();
+//                            location.reload();
                         });
                     }
                 };

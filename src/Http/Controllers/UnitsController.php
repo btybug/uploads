@@ -1,14 +1,13 @@
 <?php namespace Sahakavatar\Uploads\Http\Controllers;
 
-use Sahakavatar\Cms\Services\CmsItemReader;
-use Sahakavatar\Cms\Services\CmsItemUploader;
 use App\Http\Controllers\Controller;
-use Sahakavatar\Cms\Models\Templates\Units;
-use Sahakavatar\Resources\Models\TemplateVariations as TemplateVariations;
-use Sahakavatar\Resources\Models\Validation as validateUpl;
 use File;
 use Illuminate\Http\Request;
 use Resources;
+use Sahakavatar\Cms\Models\Templates\Units;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
+use Sahakavatar\Resources\Models\Validation as validateUpl;
 use View;
 
 
@@ -36,7 +35,7 @@ class UnitsController extends Controller
 
     public function getIndex(Request $request)
     {
-        $units=Units::all()->run();
+        $units = Units::all()->run();
         return view("uploads::gears.units.index", compact(['units']));
     }
 
