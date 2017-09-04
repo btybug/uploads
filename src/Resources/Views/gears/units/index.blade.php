@@ -177,7 +177,7 @@
                 Dropzone.options.myAwesomeDropzone = {
                     init: function() {
                         this.on("success", function(file) {
-//                            location.reload();
+                            location.reload();
                         });
                     }
                 };
