@@ -1,5 +1,5 @@
 @extends('cms::layouts.mTabs',['index'=>'uploads_assets'])
-        <!-- Nav tabs -->
+<!-- Nav tabs -->
 @section('tab')
     <div class="row list_222">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cms_module_list module_list_1">
@@ -21,15 +21,16 @@
                             <li class="active_class">
                         @else
                             <li>
-                        @endif
-                    @endif
+                                @endif
+                                @endif
 
-                        <a href="?type={{$main_type}}&sub={{$key}}" main-type="{{$key}}" rel="tab" class="tpl-left-items">
-                            <span class="module_icon"></span> {{$value}}
-                            <a data-type="{{$key}}" class="add-class-modal pull-right gettype"></a>
-                        </a>
-                    </li>
-                @endforeach
+                                <a href="?type={{$main_type}}&sub={{$key}}" main-type="{{$key}}" rel="tab"
+                                   class="tpl-left-items">
+                                    <span class="module_icon"></span> {{$value}}
+                                    <a data-type="{{$key}}" class="add-class-modal pull-right gettype"></a>
+                                </a>
+                            </li>
+                            @endforeach
             </ul>
         </div>
         {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
@@ -65,9 +66,9 @@
                     <h4 class="modal-title" id="myModalLabel">Create new Sub</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['url'=>'/admin/uploads/assets/styles/add-sub','class' => 'form-horizontal']) !!}
-                    {!! Form::hidden('type',null,['id' => 'class-type']) !!}
-                            <!-- Text input-->
+                {!! Form::open(['url'=>'/admin/uploads/assets/styles/add-sub','class' => 'form-horizontal']) !!}
+                {!! Form::hidden('type',null,['id' => 'class-type']) !!}
+                <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="name">Sub Name</label>
                         <div class="col-md-4">
@@ -125,7 +126,7 @@
 
         $(document).ready(function () {
 
-            $(".select-types").on('change',function(){
+            $(".select-types").on('change', function () {
                 console.log($(this).val());
                 window.location.href = window.location.pathname + "?type=" + $(this).val();
             });
@@ -146,7 +147,7 @@
                 $('#addSub').modal();
             });
 
-            if(p != '') $("a[main-type=" + p + "]").click();
+            if (p != '') $("a[main-type=" + p + "]").click();
 
 
             $('body').on('click', 'button[data-action]', function () {

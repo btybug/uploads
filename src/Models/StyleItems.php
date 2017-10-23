@@ -11,8 +11,8 @@
 
 namespace Sahakavatar\Uploads\Models;
 
-use Sahakavatar\Cms\Helpers\helpers;
 use Illuminate\Database\Eloquent\Model;
+use Sahakavatar\Cms\Helpers\helpers;
 
 /**
  * Class StyleItems
@@ -51,11 +51,12 @@ class StyleItems extends Model
      */
     protected $dates = ['created_at', 'updated_at'];
     protected $appends = ['html'];
+
     /**
      * @param $file
      * @return array|bool
      */
-    public static function uplaodStyle ($file)
+    public static function uplaodStyle($file)
     {
         self::$uf = config('paths.styles_upl');
         $originalFileName = $file->getClientOriginalName();
@@ -73,17 +74,9 @@ class StyleItems extends Model
     }
 
     /**
-     * @param $query
-     */
-    public function scopeDefaults($query)
-    {
-        $query->where('is_default', 1);
-    }
-
-    /**
      *
      */
-    protected static function boot ()
+    protected static function boot()
     {
         parent::boot();
         static::created(function ($model) {
@@ -104,15 +97,11 @@ class StyleItems extends Model
             return $model;
         });
     }
-    public function getHtmlAttribute(){
-
-      return  self::getDemoHtml($this->type,$this->slug);
-    }
 
     /**
      *
      */
-    public static function makeCss ()
+    public static function makeCss()
     {
         $css_file = config('paths.css') . '/' . self::$main_css;
 
@@ -128,18 +117,26 @@ class StyleItems extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @param $query
      */
-    public function classe ()
+    public function scopeDefaults($query)
     {
-        return $this->belongsTo('Sahakavatar\Uploads\Models\Styles', 'style_id');
+        $query->where('is_default', 1);
     }
-    public static function getDemoHtml( $key, $class){
 
-         $demoHtml = [
+    public function getHtmlAttribute()
+    {
+
+        return self::getDemoHtml($this->type, $this->slug);
+    }
+
+    public static function getDemoHtml($key, $class)
+    {
+
+        $demoHtml = [
             'text' => "<span  class='$class item-to-change'>Demo text</span>",
             'image' => "<img src='public/img/ajax-loader5.gif' alt='demoimg' class='$class'>",
-            'container'=> "<div class='$class'></div>",
+            'container' => "<div class='$class'></div>",
             'buttons' => "<button class='$class'></button>",
             'fields' => "<form class='$class'></form>",
             'breadcrumb' => "<ul class='$class'>
@@ -159,6 +156,14 @@ class StyleItems extends Model
         ];
         return $demoHtml[$key];
 
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function classe()
+    {
+        return $this->belongsTo('Sahakavatar\Uploads\Models\Styles', 'style_id');
     }
 }
 

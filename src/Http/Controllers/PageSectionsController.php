@@ -1,13 +1,12 @@
 <?php namespace Sahakavatar\Uploads\Http\Controllers;
 
-use Sahakavatar\Cms\Services\CmsItemReader;
-use Sahakavatar\Cms\Services\CmsItemUploader;
 use App\Http\Controllers\Controller;
-use Sahakavatar\Cms\Models\Sections;
-use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
-use File;
 use Illuminate\Http\Request;
 use Resources;
+use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
+use Sahakavatar\Cms\Models\Sections;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
 use View;
 
 
@@ -43,19 +42,13 @@ class PageSectionsController extends Controller
     {
         $slug = $request->get('p', 0);
         $currentPageSection = null;
-        $pageSections = CmsItemReader::getAllGearsByType('page_sections')
-            ->where('place', 'frontend')
-            ->run();
+        $pageSections = ContentLayouts::all();
         if ($slug) {
-            $currentPageSection = CmsItemReader::getAllGearsByType('page_sections')
-                ->where('place', 'frontend')
-                ->where('slug', $slug)
-                ->first();
+            $currentPageSection = ContentLayouts::find($slug);
+
         } else {
             if (count($pageSections)) {
-                $currentPageSection = CmsItemReader::getAllGearsByType('page_sections')
-                    ->where('place', 'frontend')
-                    ->first();
+                $currentPageSection = $pageSections[0];
             }
         }
         $variations = $currentPageSection ? $currentPageSection->variations() : [];
@@ -63,15 +56,23 @@ class PageSectionsController extends Controller
         return view('uploads::gears.page_sections.index', compact(['pageSections', 'currentPageSection', 'variations', 'type']));
     }
 
+    public function getVariations($slug)
+    {
+        $pageSection = ContentLayouts::find($slug);
+        if (!$pageSection) abort(404);
+        $variations = $pageSection->variations();
+        return view('uploads::gears.page_sections.variations', compact(['pageSection', 'variations']));
+    }
+
 
     /**
      * @param $slug
      */
-    public function getSettings($slug,Request $request)
+    public function getSettings($slug, Request $request)
     {
-        $settings=$request->all();
+        $settings = $request->all();
         if ($slug) {
-            $view = ContentLayouts::renderLivePreview($slug,$settings);
+            $view = ContentLayouts::renderLivePreview($slug, $settings);
             return $view ? $view : abort('404');
         } else {
             abort('404');
@@ -89,34 +90,37 @@ class PageSectionsController extends Controller
         return response()->json([
             'url' => isset($output['id']) ? url('/admin/uploads/gears/page-sections/settings/' . $output['id']) : false,
             'html' => isset($output['data']) ? $output['data'] : false
-
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postDeleteVariation(Request $request) {
-        $result = false;
-        if($request->slug) {
-            $result = ContentLayouts::deleteVariation($request->slug);
-        }
-        return \Response::json(['success' => $result]);
+    public function getConsole(Request $request)
+    {
+       return dd($request->except('_token'));
     }
 
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postDelete(Request $request) {
+    public function postDeleteVariation(Request $request)
+    {
+        $result = false;
+        if ($request->slug) {
+            $result = ContentLayouts::deleteVariation($request->slug);
+        }
+        return redirect()->back();
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postDelete(Request $request)
+    {
         $slug = $request->get('slug');
-        $pageSection = CmsItemReader::getAllGearsByType('page_sections')
-            ->where('place', 'frontend')
-            ->where('slug', $slug)
-            ->first();
-        if($pageSection) {
-            $deleted = $pageSection->deleteGear();
+        $pageSection = ContentLayouts::find($slug);
+        if ($pageSection) {
+            $deleted = $pageSection->delete();
             return \Response::json(['success' => $deleted, 'url' => url('/admin/uploads/gears/page-sections')]);
         }
     }
@@ -127,7 +131,7 @@ class PageSectionsController extends Controller
      */
     public function postUpload(Request $request)
     {
-        return $this->upload->run($request,'frontend');
+        return $this->upload->run($request, 'frontend');
     }
 
     /**

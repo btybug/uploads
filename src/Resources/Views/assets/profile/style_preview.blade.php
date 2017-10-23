@@ -38,7 +38,7 @@
 
         $(document).ready(function () {
 
-            $("body").on('click','.make-default-style',function(){
+            $("body").on('click', '.make-default-style', function () {
                 var style_id = $(this).data("style");
                 var profile_id = $(this).data("profile");
                 var default_style = $(".default_style").val();
@@ -55,8 +55,8 @@
                         'X-CSRF-TOKEN': $("input[name='_token']").val()
                     },
                     success: function (data) {
-                        if (! data.error) {
-                          window.location.reload();
+                        if (!data.error) {
+                            window.location.reload();
                         }
                     },
                     type: 'POST'

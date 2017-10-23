@@ -36,9 +36,9 @@
                     <h4 class="modal-title" id="myModalLabel">Create new Sub</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['url'=>'/admin/uploads/assets/styles/add-sub','class' => 'form-horizontal']) !!}
-                    {!! Form::hidden('type',null,['id' => 'class-type']) !!}
-                            <!-- Text input-->
+                {!! Form::open(['url'=>'/admin/uploads/assets/styles/add-sub','class' => 'form-horizontal']) !!}
+                {!! Form::hidden('type',null,['id' => 'class-type']) !!}
+                <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="name">Sub Name</label>
                         <div class="col-md-4">

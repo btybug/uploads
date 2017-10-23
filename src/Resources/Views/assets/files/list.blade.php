@@ -1,5 +1,5 @@
 @extends('cms::layouts.mTabs',['index'=>'uploads_assets'])
-        <!-- Nav tabs -->
+<!-- Nav tabs -->
 @section('tab')
     {!! HTML::style('app/Modules/Resources/css/new-store.css') !!}
     <div class="row">
@@ -15,7 +15,8 @@
                 @if($types)
                     @foreach($types as $k=>$v)
                         <li {!! (!$k)?'class="active"':null !!}>
-                            <a href="?p={!! $v['foldername'] !!}" main-type="{{ $v['foldername'] }}" rel="tab" class="tpl-left-items">
+                            <a href="?p={!! $v['foldername'] !!}" main-type="{{ $v['foldername'] }}" rel="tab"
+                               class="tpl-left-items">
                                 <span class="module_icon"></span> {{ $v['title'] }}
                                 @if($v['foldername'] == 'body')
                                     <a href="javascript:void(0)" class="add-new-type pull-right"><i
@@ -26,7 +27,8 @@
                         @if(isset($v['subs']) and count($v['subs']))
                             @foreach($v['subs'] as $sub)
                                 <li class="m-l-30" style="width: 90%;">
-                                    <a href="?p={{ $sub['foldername'] }}" type="{!! $v['foldername'] !!}" main-type="{{ $sub['foldername'] }}"
+                                    <a href="?p={{ $sub['foldername'] }}" type="{!! $v['foldername'] !!}"
+                                       main-type="{{ $sub['foldername'] }}"
                                        class="tpl-left-items">
                                         <span class="module_icon"></span> {{ $sub['title'] }}
                                         @if($sub['type'] != 'core')
@@ -62,7 +64,8 @@
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 template-upload-button p-l-0 p-r-0">
                     <button class="btn btn-sm  pull-right m-b-10 " type="button" data-toggle="modal"
                             data-target="#uploadfile">
-                        <span class="module_upload_icon m-l-20"></span> <span class="upload_module_text">Upload Files</span>
+                        <span class="module_upload_icon m-l-20"></span> <span
+                                class="upload_module_text">Upload Files</span>
                     </button>
                 </div>
             </div>
@@ -82,7 +85,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Upload</h4>
                 </div>
                 <div class="modal-body">
@@ -117,42 +121,42 @@
     {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
-            init: function() {
-                this.on("success", function(file) {
+            init: function () {
+                this.on("success", function (file) {
                     location.reload();
                 });
             }
         };
         $(document).ready(function () {
-            var p="{!! $_GET['p'] or null !!}";
+            var p = "{!! $_GET['p'] or null !!}";
 
-            $('.tpl-left-items').on('click',function () {
-                if($(this).attr('type')){
+            $('.tpl-left-items').on('click', function () {
+                if ($(this).attr('type')) {
                     $('#dropzone_hiiden_data').val($(this).attr('type'));
-                }else {
+                } else {
                     $('#dropzone_hiiden_data').val($(this).attr('main-type'));
                 }
 
             });
-            $('.list-unstyled').on('click', '.tpl-left-items', function(e) {
+            $('.list-unstyled').on('click', '.tpl-left-items', function (e) {
                 e.preventDefault();
                 var main_type = $(this).attr('main-type');
                 var pageurl = $(this).attr('href');
                 $('.tpl-left-items').parent().removeClass('active');
                 var general_type = $(this).attr('type');
 
-                if(general_type){
-                    $('*[main-type="'+general_type+'"]').parent().addClass('active');
-                    $('*[main-type="'+ main_type +'"][type="'+general_type+'"]').parent().addClass('active');
-                }else{
-                    $('*[main-type="'+ main_type +'"]').parent().addClass('active');
+                if (general_type) {
+                    $('*[main-type="' + general_type + '"]').parent().addClass('active');
+                    $('*[main-type="' + main_type + '"][type="' + general_type + '"]').parent().addClass('active');
+                } else {
+                    $('*[main-type="' + main_type + '"]').parent().addClass('active');
                 }
 
                 $.ajax({
                     url: '/admin/uploads/assets/files/files-with-type',
                     data: {
                         main_type: main_type,
-                        url:pageurl+'?rel=tab',
+                        url: pageurl + '?rel=tab',
                         type: general_type
                     },
                     dataType: 'json',
@@ -161,7 +165,7 @@
                         $('.img-loader').removeClass('hide');
                     },
                     headers: {
-                        'X-CSRF-TOKEN':$("input[name='_token']").val()
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
                     },
                     success: function (data) {
                         $('.img-loader').addClass('hide');
@@ -171,17 +175,17 @@
                     },
                     type: 'POST'
                 });
-                if(pageurl!=window.location){
-                    window.history.pushState({path:pageurl},'',pageurl);
+                if (pageurl != window.location) {
+                    window.history.pushState({path: pageurl}, '', pageurl);
                 }
                 return false;
             });
 
 
-            $("a[main-type="+p+"]").click();
+            $("a[main-type=" + p + "]").click();
 
 
-            $('body').on('click','.del-tpl',function(){
+            $('body').on('click', '.del-tpl', function () {
                 var slug = $(this).attr('slug');
                 $.ajax({
                     url: '/admin/uploads/assets/files/delete',
@@ -189,7 +193,7 @@
                         slug: slug
                     },
                     headers: {
-                        'X-CSRF-TOKEN':$("input[name='_token']").val()
+                        'X-CSRF-TOKEN': $("input[name='_token']").val()
                     },
                     dataType: 'json',
                     success: function (data) {
@@ -201,12 +205,12 @@
 
         });
 
-        $('.tab-content').on('click','.delete_layout', function () {
+        $('.tab-content').on('click', '.delete_layout', function () {
             var key = $(this).attr('data-key');
             $('.delete_modal .modal-footer a')
-                    .attr('href', '#')
-                    .attr('slug', $(this).attr('data-key'))
-                    .addClass('del-tpl');
+                .attr('href', '#')
+                .attr('slug', $(this).attr('data-key'))
+                .addClass('del-tpl');
             $('.modal-body').html("<p>atre you sure you want to delete Unit <b>" + $(this).attr('data-title') + '<b> ?');
             $('.delete_modal').modal();
         });

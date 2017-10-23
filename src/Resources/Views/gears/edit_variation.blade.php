@@ -27,7 +27,8 @@
                     </div>
                 @endif
             @endif
-            <button class="btn btn-sm btn-success mrg-btm-10" type="submit"><i class="fa fa-save"></i> Save Variation</button>
+            <button class="btn btn-sm btn-success mrg-btm-10" type="submit"><i class="fa fa-save"></i> Save Variation
+            </button>
             <button class="btn btn-sm btn-default mrg-btm-10 cancel" type="button">Cancel</button>
             {!! Form::close() !!}
         </div>

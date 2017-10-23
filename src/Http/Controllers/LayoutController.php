@@ -11,11 +11,11 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
-use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use App\Models\Themes\Themes;
 use Illuminate\Http\Request;
+use Sahakavatar\Cms\Helpers\helpers;
+use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 
 /**
  * Class ModulesController
@@ -56,7 +56,7 @@ class LayoutController extends Controller
             $curentLayout = $contentLayouts[0];
         }
         $variations = $curentLayout->variations();
-        return view('uploads::gears.layouts.index', compact(['contentLayouts', 'curentLayout','variations']));
+        return view('uploads::gears.layouts.index', compact(['contentLayouts', 'curentLayout', 'variations']));
     }
 
 }

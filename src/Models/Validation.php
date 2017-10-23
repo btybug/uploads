@@ -11,9 +11,9 @@
 
 namespace Sahakavatar\Uploads\Models;
 
-use Validator;
-use Sahakavatar\Uploads\Interfaces\vInterfase;
 use File;
+use Sahakavatar\Uploads\Interfaces\vInterfase;
+use Validator;
 
 
 /**
@@ -23,6 +23,10 @@ use File;
 class Validation implements vInterfase
 {
 
+    /**
+     *
+     */
+    const MIN_SIZE = 3;
     /**
      * @var string
      */
@@ -35,11 +39,6 @@ class Validation implements vInterfase
      * @var array
      */
     private $requirements = ['name', "type", "slug", "enabled"];
-
-    /**
-     *
-     */
-    const MIN_SIZE = 3;
 
     /**
      * Validation constructor.
@@ -66,29 +65,6 @@ class Validation implements vInterfase
     }
 
     /**
-     * @param array $data
-     * @return array|int
-     */
-    public function check(array $data)
-    {
-        $v = Validator::make($data, $this->rules());
-        if ($v->fails()) {
-            $messages = $v->errors()->all();
-            return $messages;
-        }
-
-        if ($data['type'] == 'addon') {
-            $v = Validator::make($data, $this->addon_rules(), $this->addon_rules_messages($data));
-            if ($v->fails()) {
-                $messages = $v->errors()->all();
-                return $messages;
-            }
-        }
-
-        return 0;
-    }
-
-    /**
      * @return array
      */
     public function admin_link_rules()
@@ -97,41 +73,6 @@ class Validation implements vInterfase
             'type' => 'required',
             'title' => 'required',
             'link' => 'required',
-        );
-    }
-
-    /**
-     * @return array
-     */
-    public function rules()
-    {
-        return array(
-            'name' => 'required|between:2,20',
-            'type' => 'required',
-            'slug' => 'required',
-            'enabled' => 'required',
-            'namespace' => 'required'
-        );
-    }
-
-    /**
-     * @return array
-     */
-    public function addon_rules()
-    {
-        return array(
-            'module' => 'required|exists:modules,slug',
-        );
-    }
-
-    /**
-     * @param $data
-     * @return array
-     */
-    public function addon_rules_messages($data)
-    {
-        return array(
-            'module.exists' => 'We have no module with ' . $data['module'] . ' name',
         );
     }
 
@@ -189,6 +130,64 @@ class Validation implements vInterfase
             $result[] = 'The slug value from module.json must be same as name just in lowercase.';
         }
         return $result;
+    }
+
+    /**
+     * @param array $data
+     * @return array|int
+     */
+    public function check(array $data)
+    {
+        $v = Validator::make($data, $this->rules());
+        if ($v->fails()) {
+            $messages = $v->errors()->all();
+            return $messages;
+        }
+
+        if ($data['type'] == 'addon') {
+            $v = Validator::make($data, $this->addon_rules(), $this->addon_rules_messages($data));
+            if ($v->fails()) {
+                $messages = $v->errors()->all();
+                return $messages;
+            }
+        }
+
+        return 0;
+    }
+
+    /**
+     * @return array
+     */
+    public function rules()
+    {
+        return array(
+            'name' => 'required|between:2,20',
+            'type' => 'required',
+            'slug' => 'required',
+            'enabled' => 'required',
+            'namespace' => 'required'
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function addon_rules()
+    {
+        return array(
+            'module' => 'required|exists:modules,slug',
+        );
+    }
+
+    /**
+     * @param $data
+     * @return array
+     */
+    public function addon_rules_messages($data)
+    {
+        return array(
+            'module.exists' => 'We have no module with ' . $data['module'] . ' name',
+        );
     }
 
     /**

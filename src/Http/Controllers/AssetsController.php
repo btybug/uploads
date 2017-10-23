@@ -11,10 +11,8 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
-use File;
-use Illuminate\Http\Request;
+use Sahakavatar\Cms\Helpers\helpers;
 
 /**
  * Class ModulesController
@@ -37,7 +35,7 @@ class AssetsController extends Controller
      * @param Upload $upload
      * @param validateUpl $v
      */
-    public function __construct ()
+    public function __construct()
     {
         $this->helper = new helpers();
     }
@@ -45,7 +43,7 @@ class AssetsController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndex ()
+    public function getIndex()
     {
         return view('uploads::assets.index');
     }

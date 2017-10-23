@@ -28,6 +28,22 @@ class Profiles extends Model
      */
     protected $dates = ['created_at', 'updated_at'];
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function ($model) {
+            self::assignDefaultStyles($model);
+            return $model;
+        });
+    }
+
+    public static function assignDefaultStyles($model)
+    {
+        $items = StyleItems::defaults()->pluck('id', 'id')->toArray();
+
+        $model->styles()->attach($items);
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -40,21 +56,6 @@ class Profiles extends Model
 
     public function user()
     {
-        return $this->belongsTo('Sahakavatar\User\User','user_id','id');
-    }
-
-    protected static function boot ()
-    {
-        parent::boot();
-        static::created(function ($model) {
-            self::assignDefaultStyles($model);
-            return $model;
-        });
-    }
-
-    public static function assignDefaultStyles($model){
-        $items = StyleItems::defaults()->pluck('id','id')->toArray();
-
-        $model->styles()->attach($items);
+        return $this->belongsTo('Sahakavatar\User\User', 'user_id', 'id');
     }
 }

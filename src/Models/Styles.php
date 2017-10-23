@@ -55,7 +55,7 @@ class Styles extends Model
      * @param $type
      * @return mixed
      */
-    public static function getTypeStyles ($type)
+    public static function getTypeStyles($type)
     {
         return self::where('type', $type)->get();
     }
@@ -63,7 +63,7 @@ class Styles extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function items ()
+    public function items()
     {
         return $this->hasMany('Sahakavatar\Uploads\Models\StyleItems', 'style_id');
     }

@@ -21,7 +21,8 @@
                                class="btn  btn-sm  m-b-5 p-l-20 p-r-20 width-150 text-left enb-disb deactivate"><i
                                         class="fa fa-power-off f-s-14 m-r-10"></i> Deactivate</a>
                         @else
-                            <a href="#" namespace="{!! $addon->slug !!}" data-action="core-enable" style="background: #7fff00;color: #000000"
+                            <a href="#" namespace="{!! $addon->slug !!}" data-action="core-enable"
+                               style="background: #7fff00;color: #000000"
                                class="btn  btn-sm  m-b-5 p-l-20 p-r-20 width-150 text-left  enb-disb"><i
                                         class="fa fa-plug f-s-14 m-r-10"></i>Activate</a>
                         @endif

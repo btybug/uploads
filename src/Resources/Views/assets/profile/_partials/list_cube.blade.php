@@ -19,21 +19,23 @@
                                     </div>
                                     <div class="col-xs-12 templates-header p-t-10 p-b-10 div_title_1">
                                         <div><span class="col-xs-12 templates-title f-s-15 text-center "
-                                                    id="title_span" class="styles_title">
+                                                   id="title_span" class="styles_title">
                                                 @if($default && $style->id == $default->id)
                                                     <i class="fa fa-check-circle f-s-13 m-r-5"
                                                        style="color: #f1f3f0;background: #1ab394;"
                                                        aria-hidden="true"></i>
                                                     {!! Form::hidden('default',$default->id,['class' => 'default_style']) !!}
                                                 @else
-                                                    <a data-profile="{!!  $profile->id !!}" data-style="{!! $style->id !!}" href="#"
+                                                    <a data-profile="{!!  $profile->id !!}"
+                                                       data-style="{!! $style->id !!}" href="#"
                                                        class="link_title_1 make-default-style"><i
                                                                 class="fa fa-retweet f-s-13 m-r-5"
                                                                 style="color: #ffffff;background: #4d6e8a;padding: 7px;border-radius: 50%;"
                                                                 aria-hidden="true"></i></a>
                                                 @endif
-                                                <div class="button_title" style="cursor: pointer;" data-styleId="{{$style->style_id}}"
-                                                     data-id="{{ $style->id }}" >{!! $style->name !!}</div></span></div>
+                                                <div class="button_title" style="cursor: pointer;"
+                                                     data-styleId="{{$style->style_id}}"
+                                                     data-id="{{ $style->id }}">{!! $style->name !!}</div></span></div>
 
                                         <div class="col-xs-12 templates-buttons text-center for_author">
                                             <i class="fa fa-user f-s-13 author-icon" aria-hidden="true"></i>

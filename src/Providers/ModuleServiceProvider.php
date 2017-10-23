@@ -80,6 +80,9 @@ class ModuleServiceProvider extends ServiceProvider
             ]
         ];
         \Eventy::action('my.tab', $tubs);
+
+        //TODO; remove when finish all
+     //   \Sahakavatar\Cms\Models\Routes::registerPages('sahak.avatar/uploads');
     }
 
     /**

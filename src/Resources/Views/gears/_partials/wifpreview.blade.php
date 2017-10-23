@@ -13,28 +13,29 @@
 {!! csrf_field() !!}
 @include('resources::assests.magicModal')
 <div class="container-fluid">
-<div class="body_ui corepreviewSetting previewcontent activeprevew" data-settinglive="content" id="widget_container">
-    
-    {!! $htmlBody !!}
-    
-</div>
+    <div class="body_ui corepreviewSetting previewcontent activeprevew" data-settinglive="content"
+         id="widget_container">
+
+        {!! $htmlBody !!}
+
+    </div>
 </div>
 <div class="Settings_ui coresetting hide animated bounceInRight" data-settinglive="settings">
-      <div class="container-fluid"> 
-    {!! Form::model($settings,['url'=>'/admin/uploads/gears/settings/'.$id, 'id'=>'add_custome_page','files'=>true]) !!}
+    <div class="container-fluid">
+        {!! Form::model($settings,['url'=>'/admin/uploads/gears/settings/'.$id, 'id'=>'add_custome_page','files'=>true]) !!}
 
-    @if($ui->have_settings)
-        {!! $htmlSettings !!}
-    @else
-        <div class="col-md-9">No Settings Available</div>
-    @endif
-</div>
+        @if($ui->have_settings)
+            {!! $htmlSettings !!}
+        @else
+            <div class="col-md-9">No Settings Available</div>
+        @endif
+    </div>
     {!! Form::close() !!}
 </div>
 
 
 <button data-settingaction="save" class="hide" id="settings_savebtn"></button>
-<input type="hidden"  id="hidden_data" value='{!!$settings_json!!}'>
+<input type="hidden" id="hidden_data" value='{!!$settings_json!!}'>
 <body>
 {!! HTML::style("/css/core_styles.css") !!}
 {!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}

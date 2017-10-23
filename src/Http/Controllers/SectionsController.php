@@ -1,15 +1,13 @@
 <?php namespace Sahakavatar\Uploads\Http\Controllers;
 
-use Sahakavatar\Cms\Services\CmsItemReader;
-use Sahakavatar\Cms\Services\CmsItemUploader;
 use App\Http\Controllers\Controller;
-use Sahakavatar\Cms\Models\Sections;
-use Sahakavatar\Modules\Models\AdminPages;
-use File;
 use Illuminate\Http\Request;
 use Resources;
+use Sahakavatar\Cms\Models\Sections;
+use Sahakavatar\Cms\Services\CmsItemReader;
+use Sahakavatar\Cms\Services\CmsItemUploader;
+use Sahakavatar\Modules\Models\AdminPages;
 use View;
-
 
 
 class SectionsController extends Controller
@@ -20,6 +18,7 @@ class SectionsController extends Controller
      */
     private $helpers = null;
     private $upload;
+
     /**
      * SectionsController constructor.
      */
@@ -58,13 +57,14 @@ class SectionsController extends Controller
                 ->first();
         }
 
-        $variations = $current  ? $current->variations() : [];
+        $variations = $current ? $current->variations() : [];
         return view("uploads::gears.sections.index", compact(['types', 'unit', 'type', 'variations', 'sections', 'current']));
     }
 
 
-    public function getSettings(Request $request) {
-        if($request->slug) {
+    public function getSettings(Request $request)
+    {
+        if ($request->slug) {
             $view = Sections::renderLivePreviewFrontend($request->slug);
             return $view ? $view : abort('404');
         } else {
@@ -75,13 +75,14 @@ class SectionsController extends Controller
     public function postSettings(Request $request)
     {
         $output = Sections::saveSettings($request->id, $request->itemname, $request->except(['_token', 'itemname']), $request->save);
-        $result =  $output ? ['html' => $output['html'], 'url' => url('/admin/uploads/gears/sections/settings', ['slug' => $output['slug']]), 'error' => false] : ['error' => true];
+        $result = $output ? ['html' => $output['html'], 'url' => url('/admin/uploads/gears/sections/settings', ['slug' => $output['slug']]), 'error' => false] : ['error' => true];
         return \Response::json($result);
     }
 
-    public function postDeleteVariation(Request $request) {
+    public function postDeleteVariation(Request $request)
+    {
         $result = false;
-        if($request->slug) {
+        if ($request->slug) {
             $result = Sections::deleteVariation($request->slug);
         }
         return \Response::json(['success' => $result]);
@@ -91,13 +92,14 @@ class SectionsController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postDelete(Request $request) {
+    public function postDelete(Request $request)
+    {
         $slug = $request->get('slug');
         $section = CmsItemReader::getAllGearsByType('sections')
             ->where('place', 'frontend')
             ->where('slug', $slug)
             ->first();
-        if($section) {
+        if ($section) {
             $deleted = $section->deleteGear();
             return \Response::json(['success' => $deleted, 'url' => url('/admin/uploads/sections/main-body')]);
         }
@@ -108,8 +110,9 @@ class SectionsController extends Controller
      * @param null $type
      * @return View
      */
-    public function unitPreviewIframe($id, $type = null) {
-        if(!$id) {
+    public function unitPreviewIframe($id, $type = null)
+    {
+        if (!$id) {
             abort('404');
         }
         $slug = explode('.', $id);
@@ -128,7 +131,7 @@ class SectionsController extends Controller
 
     public function postUpload(Request $request)
     {
-        return $this->upload->run($request,'frontend');
+        return $this->upload->run($request, 'frontend');
     }
 }
 

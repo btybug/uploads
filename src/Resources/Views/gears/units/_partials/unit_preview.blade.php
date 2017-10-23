@@ -1,46 +1,37 @@
-{!! HTML::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css') !!}
+{!! BBCss()  !!}
 {!! HTML::style("/css/font-awesome/css/font-awesome.min.css") !!}
 {!! HTML::style("/js/jquery-ui/jquery-ui.min.css") !!}
-{!! HTML::script('/js/jquery-2.1.4.min.js') !!}
-{!! HTML::script('/js/bootstrap.min.js') !!}
-{!! HTML::style("/css/animate.css") !!}
 {!! HTML::style("/css/preview-template.css") !!}
-{!! HTML::style("/css/core_styles.css") !!}
-{!! HTML::style("/css/builder-tool.css") !!}
-{!! HTML::style('/css/jquery.tagit.css') !!}
-
+{!! HTML::style('/css/cms.css') !!}
+{!! HTML::style('custom/css/'.$ui->slug.'.css') !!}
 <body>
 {!! csrf_field() !!}
 @include('resources::assests.magicModal')
 <div class="container-fluid">
-<div class="body_ui corepreviewSetting previewcontent activeprevew" data-settinglive="content" id="widget_container">
-
-    {!! $htmlBody !!}
-
-</div>
+    <div class="body_ui corepreviewSetting previewcontent activeprevew" data-settinglive="content"
+         id="widget_container">
+        {!! $htmlBody !!}
+    </div>
 </div>
 <div class="Settings_ui coresetting hide animated bounceInRight" data-settinglive="settings">
-      <div class="container-fluid">
+    <div class="container-fluid">
 
-    {!! Form::model($settings,['url'=>'/admin/uploads/gears/units/settings/'.$id, 'id'=>'add_custome_page','files'=>true]) !!}
-    <input name="itemname" type="hidden" data-parentitemname="itemname" />
-    @if($ui->have_settings)
+        {!! Form::model($settings,['url'=>'/admin/uploads/gears/units/settings/'.$id, 'id'=>'add_custome_page','files'=>true]) !!}
+        <input name="itemname" type="hidden" data-parentitemname="itemname"/>
         {!! $htmlSettings !!}
-    @else
-        <div class="col-md-9">No Settings Available</div>
-    @endif
-</div>
-    {!! Form::close() !!}
+        {!! Form::close() !!}
+    </div>
 </div>
 
 
 <button data-settingaction="save" class="hide" id="settings_savebtn"></button>
-<input type="hidden"  id="hidden_data" value='{!!$settings_json!!}'>
+<input type="hidden" id="hidden_data" value='{!!$settings_json!!}'>
 <body>
-{!! HTML::script("/js/jqueryui/js/jquery-ui.min.js") !!}
+{!! BBJquery() !!}
+{!! BBMainFrontJS() !!}
 {!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
 {!! HTML::script("/js/UiElements/ui-preview-setting.js") !!}
 {!! HTML::script("/js/UiElements/ui-settings.js") !!}
-<script src="{!! url('public/fw.js') !!}" type="text/javascript"></script>
-{!! HTML::script('/public/js/tag-it.js') !!}
-{!! BBFrameworkJs() !!}
+@if(isset($ui))
+    {!! HTML::script('custom/js/'.str_replace(' ','-',$ui->slug).'.js') !!}
+@endif

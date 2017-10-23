@@ -12,17 +12,17 @@
 namespace Sahakavatar\Uploads\Http\Controllers;
 
 use App\Core\FormRegister;
-use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
-use App\Models\ExtraModules\Structures;
-use Sahakavatar\Console\Models\Menu;
 use App\Models\AdminPages;
+use App\Models\ExtraModules\Structures;
+use File;
+use Illuminate\Http\Request;
+use Sahakavatar\Cms\Helpers\helpers;
+use Sahakavatar\Cms\Services\CmsItemRegister;
+use Sahakavatar\Console\Models\Menu;
 use Sahakavatar\Modules\Models\Routes;
 use Sahakavatar\Uploads\Models\Upload;
 use Sahakavatar\Uploads\Models\Validation as validateUpl;
-use File;
-use Illuminate\Http\Request;
-use Sahakavatar\Cms\Services\CmsItemRegister;
 
 /**
  * Class ModulesController
@@ -43,10 +43,6 @@ class ModulesController extends Controller
      */
     public $helper;
     /**
-     * @var Module
-     */
-    protected $modules;
-    /**
      * @var mixed
      */
     public $up;
@@ -58,6 +54,10 @@ class ModulesController extends Controller
      * @var
      */
     public $upplugin;
+    /**
+     * @var Module
+     */
+    protected $modules;
 
     /**
      * ModulesController constructor.
@@ -278,24 +278,6 @@ class ModulesController extends Controller
         }
     }
 
-    private function MakeConfigPages($moduleName, $slug, $id = 0)
-    {
-        $menu = base_path('app/Modules/Console/menuPages.json');
-        $menu = json_decode(\File::get($menu), true);
-        $parentPageSlug = 'console_modules';
-        $parentPage = AdminPages::where('slug', $parentPageSlug)->first();
-        $row = BBRegisterAdminPages("Console", $moduleName, "/admin/console/modules/" . $slug, null, $parentPage->id);
-        foreach ($menu['items'] as $item) {
-            $url = str_replace('here', $slug, $item['url']);
-            $parent = BBRegisterAdminPages("Console", $moduleName . " " . $item['title'], $url, null, $row->id);
-            if (isset($item['childs']) && count($item['childs'])) {
-                foreach ($item['childs'] as $ch) {
-                    BBRegisterAdminPages("Console", $moduleName . " " . $item['title'] . "-" . $ch, $url . "/" . $ch, null, $parent->id);
-                }
-            }
-        }
-    }
-
     /**
      * @param $fileName
      * @return array|bool
@@ -335,6 +317,24 @@ class ModulesController extends Controller
 //        dd($menu);
         dd(Menu::findByPlugin('58865e40b3f5e'));
 
+    }
+
+    private function MakeConfigPages($moduleName, $slug, $id = 0)
+    {
+        $menu = base_path('app/Modules/Console/menuPages.json');
+        $menu = json_decode(\File::get($menu), true);
+        $parentPageSlug = 'console_modules';
+        $parentPage = AdminPages::where('slug', $parentPageSlug)->first();
+        $row = BBRegisterAdminPages("Console", $moduleName, "/admin/console/modules/" . $slug, null, $parentPage->id);
+        foreach ($menu['items'] as $item) {
+            $url = str_replace('here', $slug, $item['url']);
+            $parent = BBRegisterAdminPages("Console", $moduleName . " " . $item['title'], $url, null, $row->id);
+            if (isset($item['childs']) && count($item['childs'])) {
+                foreach ($item['childs'] as $ch) {
+                    BBRegisterAdminPages("Console", $moduleName . " " . $item['title'] . "-" . $ch, $url . "/" . $ch, null, $parent->id);
+                }
+            }
+        }
     }
 
 }

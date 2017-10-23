@@ -11,9 +11,10 @@
 
 namespace Sahakavatar\Uploads\Models;
 
+use File;
 use Illuminate\Http\Request;
 use Sahakavatar\Cms\Helpers\helpers;
-use Zipper,File;
+use Zipper;
 
 /**
  * Class TplUpload
@@ -92,9 +93,18 @@ class StyleUpload
     public function extract()
     {
         $fileName = $this->fileNmae;
-        $this->generatedName = $fileName.'_'.uniqid();
+        $this->generatedName = $fileName . '_' . uniqid();
         File::makeDirectory($this->uf . $this->generatedName);
         Zipper::make($this->uf . "/" . $fileName . self::ZIP)->extractTo($this->uf . $this->generatedName . '/');
+    }
+
+    /**
+     * @param $fileName
+     */
+    public function deleteFolderZip($fileName)
+    {
+        File::deleteDirectory($this->uf . $fileName);
+        File::delete($this->uf . $fileName . self::ZIP);
     }
 
     /**
@@ -106,15 +116,15 @@ class StyleUpload
     {
         if (File::exists($this->uf . $folder . '/' . 'config.json')) {
             $file = $this->uf . $folder . '/' . 'config.json';
-            $response =  $this->validate($file, $folder);
+            $response = $this->validate($file, $folder);
             return $response;
         } else {
             if (File::exists($this->uf . $folder . '/' . $name . '/' . 'config.json')) {
                 $file = $this->uf . $folder . '/' . $name . '/' . 'config.json';
-                $response =  $this->validate($file, $folder);
+                $response = $this->validate($file, $folder);
 
                 return $response;
-            }else{
+            } else {
                 return ['error' => 'true', 'message' => 'config.json file is not exists'];
             }
         }
@@ -148,7 +158,7 @@ class StyleUpload
             $conf['created_at'] = time('now');
             $json = json_encode($conf, true);
             File::put($file, $json);
-            return ['data' => $conf,'code' => '200', 'error' => false];
+            return ['data' => $conf, 'code' => '200', 'error' => false];
         }
 
         return ['message' => 'Json file is empty !!!', 'code' => '404', 'error' => true];
@@ -164,14 +174,5 @@ class StyleUpload
             return 'zip';
         }
         return 0;
-    }
-
-    /**
-     * @param $fileName
-     */
-    public function deleteFolderZip($fileName)
-    {
-        File::deleteDirectory($this->uf . $fileName);
-        File::delete($this->uf . $fileName . self::ZIP);
     }
 }

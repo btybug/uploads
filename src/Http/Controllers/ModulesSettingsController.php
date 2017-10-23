@@ -11,18 +11,16 @@
 
 namespace Sahakavatar\Uploads\Http\Controllers;
 
-use Sahakavatar\Cms\Helpers\helpers;
 use App\Http\Controllers\Controller;
-use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use App\Models\ExtraModules\Structures;
+use File;
+use Illuminate\Http\Request;
+use Sahakavatar\Cms\Helpers\helpers;
+use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use Sahakavatar\Cms\Models\Templates\Units;
 use Sahakavatar\Modules\Models\AdminPages;
 use Sahakavatar\Modules\Models\Routes;
-use Sahakavatar\Uploads\Models\Upload;
-use Sahakavatar\Uploads\Models\Validation as validateUpl;
 use Sahakavatar\User\Models\Roles;
-use File;
-use Illuminate\Http\Request;
 
 /**
  * Class ModulesController
@@ -37,7 +35,7 @@ class ModulesSettingsController extends Controller
     public $page_menu;
     public $types;
 
-    public function __construct ()
+    public function __construct()
     {
         $this->modules = json_decode(\File::get(storage_path('app/modules.json')));
         $this->extra_modules = json_decode(\File::get(storage_path('app/plugins.json')));
@@ -46,39 +44,41 @@ class ModulesSettingsController extends Controller
         $this->types = @json_decode(File::get(config('paths.unit_path') . 'configTypes.json'), 1)['types'];
     }
 
-    public function getMain ($basename)
+    public function getMain($basename)
     {
-        return view("uploads::modules.settings.main",compact(['basename']));
+        return view("uploads::modules.settings.main", compact(['basename']));
     }
 
-    private function validateModule($basename){
-        if(isset($this->modules->$basename)){
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getIndex($slug)
+    {
+        $module = $this->validateModule($slug);
+
+        if (!$module) return redirect($this->module_path);
+
+        return view('uploads::modules.settings.general', compact(['slug', 'module', 'page_menu']));
+    }
+
+    private function validateModule($basename)
+    {
+        if (isset($this->modules->$basename)) {
             return $this->modules->$basename;
-        }else{
-            if(isset($this->extra_modules->$basename)){
+        } else {
+            if (isset($this->extra_modules->$basename)) {
                 return $this->extra_modules->$basename;
             }
         }
 
         return false;
     }
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function getIndex ($slug)
+
+    public function getGears($slug)
     {
         $module = $this->validateModule($slug);
 
-        if(! $module) return redirect($this->module_path);
-
-        return view('uploads::modules.settings.general',compact(['slug', 'module','page_menu']));
-    }
-
-    public function getGears ($slug)
-    {
-        $module = $this->validateModule($slug);
-
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $types = $this->types;
         $type = 'frontend';
@@ -87,45 +87,45 @@ class ModulesSettingsController extends Controller
         return view('uploads::modules.settings.gears', compact(['slug', 'ui_units', 'type', 'types']));
     }
 
-    public function getAssets ($slug)
+    public function getAssets($slug)
     {
-        return view('uploads::modules.settings.assets',compact(['slug']));
+        return view('uploads::modules.settings.assets', compact(['slug']));
     }
 
-    public function getBuild ($slug)
+    public function getBuild($slug)
     {
-        return view('uploads::modules.settings.build',compact(['slug']));
+        return view('uploads::modules.settings.build', compact(['slug']));
     }
 
-    public function getPermission ($slug)
+    public function getPermission($slug)
     {
         $module = $this->validateModule($slug);
 
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $menu = BBgetAdminMenu($slug);
         $roles = Roles::pluck('id', 'name');
 
-        if($module->type == 'core'){
-            $files = helpers::rglob('app/Modules/'.$slug.'/Resources/Views');
-        }else{
-            $files = helpers::rglob('app/ExtraModules/'.$slug.'/views');
+        if ($module->type == 'core') {
+            $files = helpers::rglob('app/Modules/' . $slug . '/Resources/Views');
+        } else {
+            $files = helpers::rglob('app/ExtraModules/' . $slug . '/views');
         }
-        $page_menu="permission";
+        $page_menu = "permission";
 
-        return view('uploads::modules.settings.permission', compact(['slug', 'module', 'menu', 'roles','files','page_menu']));
+        return view('uploads::modules.settings.permission', compact(['slug', 'module', 'menu', 'roles', 'files', 'page_menu']));
     }
 
-    public function getCode ($slug)
+    public function getCode($slug)
     {
         $module = $this->validateModule($slug);
 
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $file_indexes = [];
 
-        if(isset($module->path) && File::isDirectory(base_path() . $module->path)){
-            $files = File::allFiles( base_path() . $module->path);
+        if (isset($module->path) && File::isDirectory(base_path() . $module->path)) {
+            $files = File::allFiles(base_path() . $module->path);
             foreach ($files as $file) {
                 $f = [];
                 $f['full_path'] = $file;
@@ -139,38 +139,38 @@ class ModulesSettingsController extends Controller
             }
         }
 
-        return view('uploads::modules.settings.code',compact(['slug', 'module', 'file_indexes']));
+        return view('uploads::modules.settings.code', compact(['slug', 'module', 'file_indexes']));
     }
 
-    public function getTables ($slug,$active = 0)
+    public function getTables($slug, $active = 0)
     {
         $module = $this->validateModule($slug);
 
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $createForm = null;
         if (isset($module->tables) and isset($module->tables[$active]))
             $createForm = Forms::where('table_name', $module->tables[$active])->first();
-        $page_menu="configMenu";
-        return view('uploads::modules.settings.tables', compact(['slug', 'module', 'active', 'createForm','page_menu']));
+        $page_menu = "configMenu";
+        return view('uploads::modules.settings.tables', compact(['slug', 'module', 'active', 'createForm', 'page_menu']));
     }
 
-    public function getViews ($slug)
+    public function getViews($slug)
     {
         $module = $this->validateModule($slug);
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $layouts = ContentLayouts::findByType('admin_template');
 
         return view('uploads::modules.settings.views', compact(['slug', 'module', 'layouts']));
     }
 
-    public function getPages ($slug,Request $request)
+    public function getPages($slug, Request $request)
     {
         $pageID = $request->get('page');
         $module = $this->validateModule($slug);
 
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $pageGrouped = AdminPages::groupBy('module_id')->get();
         $pages = AdminPages::pluck('title', 'id')->all();
@@ -184,24 +184,24 @@ class ModulesSettingsController extends Controller
             $page = AdminPages::where('module_id', $slug)->first();
         }
 
-        if ($page && ! $page->layout_id) $page->layout_id = 0;
+        if ($page && !$page->layout_id) $page->layout_id = 0;
 
         return view('uploads::modules.settings.build.pages', compact(['pageGrouped', 'pages', 'modulesList', 'layouts', 'module', 'slug', 'type', 'layouts', 'page']));
     }
 
-    public function getMenus ($slug,Request $request)
+    public function getMenus($slug, Request $request)
     {
 
         $type = "backend";
         $menu = $request->get('p');
         $module = $this->validateModule($slug);
 
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $menus = [];
 
-        if(isset($module->path) && File::isDirectory(base_path() . $module->path)){
-            $files = File::allFiles( base_path() . $module->path . "/Config/BackBuild/Menus");
+        if (isset($module->path) && File::isDirectory(base_path() . $module->path)) {
+            $files = File::allFiles(base_path() . $module->path . "/Config/BackBuild/Menus");
             foreach ($files as $file) {
                 if (!strpos($file, '.gitkeep')) {
                     $menus[] = $file;
@@ -209,39 +209,39 @@ class ModulesSettingsController extends Controller
             }
         }
 
-        if(count($menus)) if(! $menu) $menu = $menus[0]->getBasename('.json');
+        if (count($menus)) if (!$menu) $menu = $menus[0]->getBasename('.json');
 
-        $roles = Roles::where('slug','!=','user')->get();
-        return view('uploads::modules.settings.build.menus', compact(['slug','type','menus','roles','menu']));
+        $roles = Roles::where('slug', '!=', 'user')->get();
+        return view('uploads::modules.settings.build.menus', compact(['slug', 'type', 'menus', 'roles', 'menu']));
     }
 
-    public function postCreateMenus ($slug,Request $request)
+    public function postCreateMenus($slug, Request $request)
     {
         $module = $this->validateModule($slug);
 
-        if(! $module) return redirect($this->module_path);
+        if (!$module) return redirect($this->module_path);
 
         $name = $request->get('name');
 
-        File::put(base_path() . $module->path . "/Config/BackBuild/Menus/".$name.".json",json_encode([],true));
+        File::put(base_path() . $module->path . "/Config/BackBuild/Menus/" . $name . ".json", json_encode([], true));
 
         return redirect()->back();
     }
 
-    public function getMenuEdit ($menu,$slug)
+    public function getMenuEdit($menu, $slug)
     {
         $pageGrouped = AdminPages::groupBy('module_id')->get();
-        $html= Routes::getModuleRoutes('GET','admin/uploads/modules')->html();
-        return view('uploads::modules.settings.build.edit_menus', compact(['slug','pageGrouped','menu','html']));
+        $html = Routes::getModuleRoutes('GET', 'admin/uploads/modules')->html();
+        return view('uploads::modules.settings.build.edit_menus', compact(['slug', 'pageGrouped', 'menu', 'html']));
     }
 
-    public function getUrls ($slug)
+    public function getUrls($slug)
     {
-        $html= Routes::getModuleRoutes('GET','admin/sahak')->html();
-        return view('uploads::modules.settings.build.urls', compact(['slug','html']));
+        $html = Routes::getModuleRoutes('GET', 'admin/sahak')->html();
+        return view('uploads::modules.settings.build.urls', compact(['slug', 'html']));
     }
 
-    public function getClassify ($slug)
+    public function getClassify($slug)
     {
         return view('uploads::modules.settings.build.classify', compact(['slug']));
     }

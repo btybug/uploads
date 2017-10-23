@@ -17,4 +17,5 @@
 @section('JS')
     {!! HTML::script("/js/UiElements/ui-preview-setting.js") !!}
     {!! HTML::script("/js/UiElements/ui-settings.js") !!}
+    {!! HTML::script("/js/UiElements/bb_div.js") !!}
 @stop

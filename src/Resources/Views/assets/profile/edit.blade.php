@@ -18,16 +18,17 @@
                             <li class="active_class">
                         @else
                             <li>
-                        @endif
-                            <a href="?type={{ $type }}&p={{ $style->slug }}" profile-id="{{ $profile->id }}" main-type="{{ $style->slug }}" rel="tab" class="tpl-left-items">
-                                <span class="module_icon"></span> {{ $style->name }}
-                                <a data-type="{{ $style->slug }}" class="add-class-modal pull-right gettype"></a>
-                            </a>
-                        </li>
-                    @endforeach
-                @else
-                    <li>No styles</li>
-                @endif
+                                @endif
+                                <a href="?type={{ $type }}&p={{ $style->slug }}" profile-id="{{ $profile->id }}"
+                                   main-type="{{ $style->slug }}" rel="tab" class="tpl-left-items">
+                                    <span class="module_icon"></span> {{ $style->name }}
+                                    <a data-type="{{ $style->slug }}" class="add-class-modal pull-right gettype"></a>
+                                </a>
+                            </li>
+                            @endforeach
+                            @else
+                                <li>No styles</li>
+                            @endif
             </ul>
         </div>
         {!! HTML::image('/images/ajax-loader5.gif', 'a picture', array('class' => 'thumb img-loader hide')) !!}
@@ -57,7 +58,7 @@
 
 
         $(document).ready(function () {
-            $("body").on('change','.select-type',function(){
+            $("body").on('change', '.select-type', function () {
                 var value = $(this).val();
                 window.location.href = window.location.pathname + "?type=" + value;
             });
@@ -113,7 +114,7 @@
                 });
             });
 
-            $('.list-unstyled').on('click', '.tpl-left-items', function(e) {
+            $('.list-unstyled').on('click', '.tpl-left-items', function (e) {
                 e.preventDefault();
                 var main_type = $(this).attr('main-type');
                 var sub = $(this).attr('sub');
@@ -132,9 +133,9 @@
                     url: '/admin/uploads/assets/profiles/render-styles',
                     data: {
                         main_type: main_type,
-                        url:pageurl+'?rel=tab',
+                        url: pageurl + '?rel=tab',
                         sub: sub,
-                        profile_id:profile_id
+                        profile_id: profile_id
                     },
                     dataType: 'json',
                     beforeSend: function () {
@@ -158,8 +159,8 @@
                     },
                     type: 'POST'
                 });
-                if(pageurl!=window.location){
-                    window.history.pushState({path:pageurl},'',pageurl);
+                if (pageurl != window.location) {
+                    window.history.pushState({path: pageurl}, '', pageurl);
                 }
                 return false;
             });

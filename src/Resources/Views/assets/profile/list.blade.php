@@ -1,11 +1,13 @@
 @extends('cms::layouts.mTabs',['index'=>'uploads_assets'])
-        <!-- Nav tabs -->
+<!-- Nav tabs -->
 @section('tab')
     <div class="collection_page">
         <div class="row top_buttons">
             <div class="pull-right">
-                <button class="create_col add_Profile"><i class="fa fa-plus" aria-hidden="true"></i>Create Collection</button>
-                <button class="upload_col"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Upload New Collection</button>
+                <button class="create_col add_Profile"><i class="fa fa-plus" aria-hidden="true"></i>Create Collection
+                </button>
+                <button class="upload_col"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Upload New Collection
+                </button>
             </div>
         </div>
         <div class="row colections_container">
@@ -17,7 +19,8 @@
                         </div>
                         <div class="col-md-4 second_area">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <span  class="name_auth">{{ $profile->user->username }}, {{ BBgetDateFormat($profile->created_at) }}</span>
+                            <span class="name_auth">{{ $profile->user->username }}
+                                , {{ BBgetDateFormat($profile->created_at) }}</span>
                         </div>
                         <div class="col-md-3 third_area">
                             @if($profile->is_default)
@@ -33,9 +36,11 @@
                         <div class="col-md-2 fourth_area pull-right">
                             <div class="">
                                 @if(! $profile->is_default)
-                                    <button data-id="{!! $profile->id !!}" class="trash_btn del_profile"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    <button data-id="{!! $profile->id !!}" class="trash_btn del_profile"><i
+                                                class="fa fa-trash-o" aria-hidden="true"></i></button>
                                 @endif
-                                <a href="{!! url('admin/uploads/assets/profiles/edit',$profile->id) !!}" class="pencil_btn"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <a href="{!! url('admin/uploads/assets/profiles/edit',$profile->id) !!}"
+                                   class="pencil_btn"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -55,8 +60,8 @@
                     <h4 class="modal-title" id="myModalLabel">Create new Profile</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['url'=>'/admin/uploads/assets/profiles/create','class' => 'form-horizontal']) !!}
-                    <!-- Text input-->
+                {!! Form::open(['url'=>'/admin/uploads/assets/profiles/create','class' => 'form-horizontal']) !!}
+                <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="name">Profile Name</label>
                         <div class="col-md-4">
@@ -83,42 +88,42 @@
 @stop
 @section('JS')
     <script>
-        $(document).ready(function(){
-            $(".add_Profile").on("click", function(){
+        $(document).ready(function () {
+            $(".add_Profile").on("click", function () {
                 $("#addProfile").modal();
             });
-            $( ".make_default" ).on( "click", function() {
+            $(".make_default").on("click", function () {
                 var id = $(this).data("id");
                 $.ajax({
                     type: "post",
                     url: "/admin/uploads/assets/profiles/make-active",
                     cache: false,
                     datatype: "json",
-                    data: {id:id},
+                    data: {id: id},
                     headers: {
                         'X-CSRF-TOKEN': $("[name=_token]").val()
                     },
                     success: function (data) {
-                        if (! data.error) {
-                           window.location.reload();
+                        if (!data.error) {
+                            window.location.reload();
                         }
                     }
                 });
             });
 
-            $( ".del_profile" ).on( "click", function() {
+            $(".del_profile").on("click", function () {
                 var id = $(this).data("id");
                 $.ajax({
                     type: "post",
                     url: "/admin/uploads/assets/profiles/delete",
                     cache: false,
                     datatype: "json",
-                    data: {id:id},
+                    data: {id: id},
                     headers: {
                         'X-CSRF-TOKEN': $("[name=_token]").val()
                     },
                     success: function (data) {
-                        if (! data.error) {
+                        if (!data.error) {
                             window.location.reload();
                         }
                     }

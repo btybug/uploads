@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use File;
 use Illuminate\Http\Request;
 use Resources;
+use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use Sahakavatar\Cms\Models\Templates\Units;
 use Sahakavatar\Cms\Services\CmsItemReader;
 use Sahakavatar\Cms\Services\CmsItemUploader;
@@ -45,8 +46,7 @@ class UnitsController extends Controller
         if (!count($unit)) return redirect()->back();
         $variation = [];
         $variations = $unit->variations();
-        return view('uploads::gears.units.variations', compact(['unit', 'variations', 'variation'])
-        );
+        return view('uploads::gears.units.variations', compact(['unit', 'variations', 'variation']));
     }
 
 
@@ -90,18 +90,15 @@ class UnitsController extends Controller
         if ($request->slug) {
             $result = Units::deleteVariation($request->slug);
         }
-        return \Response::json(['success' => $result]);
+        return redirect()->back()->with("message","Variation was deleted");
     }
 
     public function postDelete(Request $request)
     {
         $slug = $request->get('slug');
-        $unit = CmsItemReader::getAllGearsByType('units')
-            ->where('place', 'frontend')
-            ->where('slug', $slug)
-            ->first();
+        $unit =  Units::find($slug);
         if ($unit) {
-            $deleted = $unit->deleteGear();
+            $deleted = $unit->delete();
             return \Response::json(['success' => $deleted, 'url' => url('/admin/uploads/gears/units')]);
         }
     }
@@ -146,7 +143,7 @@ class UnitsController extends Controller
         if ($ui->main_type == 'data_source') {
             $extra_data = BBGiveMe('array', 3);
         }
-        $htmlBody = $ui->render(['settings' => $settings, 'source' => $extra_data, 'cheked' => 1, 'field' => null]);
+        $htmlBody = $ui->renderLive(['settings' => $settings, 'source' => $extra_data, 'cheked' => 1, 'field' => null]);
         $htmlSettings = $ui->renderSettings(compact('settings'));
         $settings_json = json_encode($settings, true);
         return view('uploads::gears.units._partials.unit_preview', compact(['htmlBody', 'htmlSettings', 'settings', 'settings_json', 'id', 'ui']));
@@ -155,8 +152,12 @@ class UnitsController extends Controller
     public function postSettings(Request $request)
     {
         $output = Units::saveSettings($request->id, $request->itemname, $request->except(['_token', 'itemname']), $request->save);
-        $result = $output ? ['html' => $output['html'], 'url' => url('/admin/uploads/gears/units/settings', ['slug' => $output['slug']]), 'error' => false] : ['error' => true];
-        return \Response::json($result);
+
+        return response()->json([
+            'error' => $output ? false : true,
+            'url' => $output ? url('/admin/uploads/gears/units/settings/' . $output['slug']) : false,
+            'html' => $output ? $output['html'] : false
+        ]);
     }
 
     public function getDefaultVariation($id)
