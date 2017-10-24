@@ -30,7 +30,7 @@
 {!! BBJquery() !!}
 {!! BBMainFrontJS() !!}
 {!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
-{!! HTML::script("/js/UiElements/ui-preview-setting.js") !!}
+{!! HTML::script("/js/UiElements/ui-preview-setting.js?v=999") !!}
 {!! HTML::script("/js/UiElements/ui-settings.js") !!}
 @if(isset($ui))
     {!! HTML::script('custom/js/'.str_replace(' ','-',$ui->slug).'.js') !!}

@@ -1,18 +1,18 @@
 {
-    "name": "sahak.avatar/uploads",
-    "description": "uploads description",
-    "authors": [
-        {
-            "name": "Eduard",
-            "email": "edo.terakyan@gmail.com"
-        }
-    ],
-    "type": "module",
-    "route": "uploads",
-    "require": {},
-	"autoload": {
-        "psr-4": {
-            "Sahakavatar\\Uploads\\": "src/"
-        }
+  "name": "sahak.avatar/uploads",
+  "description": "uploads description",
+  "authors": [
+    {
+      "name": "Eduard",
+      "email": "edo.terakyan@gmail.com"
     }
+  ],
+  "type": "module",
+  "route": "uploads",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Sahakavatar\\Uploads\\": "src/"
+    }
+  }
 }
