@@ -1,6 +1,6 @@
 <?php
 
-namespace Sahakavatar\Uploads\Providers;
+namespace Btybug\Uploads\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

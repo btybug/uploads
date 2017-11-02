@@ -9,7 +9,7 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Models;
+namespace Btybug\Uploads\Models;
 
 use File;
 use Illuminate\Http\Request;

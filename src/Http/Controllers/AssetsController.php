@@ -9,14 +9,14 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Sahakavatar\Cms\Helpers\helpers;
 
 /**
  * Class ModulesController
- * @package Sahakavatar\Modules\Http\Controllers
+ * @package Btybug\Modules\Http\Controllers
  */
 class AssetsController extends Controller
 {

@@ -9,14 +9,14 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Datatables;
 use File;
 use Illuminate\Http\Request;
-use Sahakavatar\Resources\Models\Files\FilesBB;
-use Sahakavatar\Resources\Models\Files\FileUpload;
+use Btybug\Resources\Models\Files\FilesBB;
+use Btybug\Resources\Models\Files\FileUpload;
 use View;
 
 

@@ -1,4 +1,4 @@
-@extends('cms::layouts.mTabs',['index'=>'upload_gears'])
+@extends('btybug::layouts.mTabs',['index'=>'upload_gears'])
 <!-- Nav tabs -->
 @section('tab')
     {!! HTML::style('app/Modules/Uploads/css/new-store.css') !!}

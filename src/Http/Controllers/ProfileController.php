@@ -9,15 +9,15 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Datatables;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Sahakavatar\Cms\Helpers\helpers;
-use Sahakavatar\Uploads\Models\Profiles;
-use Sahakavatar\Uploads\Models\Styles;
+use Btybug\Uploads\Models\Profiles;
+use Btybug\Uploads\Models\Styles;
 use Validator;
 use View;
 

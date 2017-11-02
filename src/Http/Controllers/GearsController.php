@@ -9,17 +9,17 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use File;
 use Illuminate\Http\Request;
 use Sahakavatar\Cms\Models\Widgets;
-use Sahakavatar\Resources\Models\UiUpload;
+use Btybug\Resources\Models\UiUpload;
 
 /**
  * Class ModulesController
- * @package Sahakavatar\Modules\Http\Controllers
+ * @package Btybug\Modules\Http\Controllers
  */
 class GearsController extends Controller
 {

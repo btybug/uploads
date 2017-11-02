@@ -9,24 +9,25 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Core\FormRegister;
 use App\Http\Controllers\Controller;
 use App\Models\AdminPages;
-use App\Models\ExtraModules\Structures;
+
 use File;
 use Illuminate\Http\Request;
 use Sahakavatar\Cms\Helpers\helpers;
+use Sahakavatar\Cms\Models\ExtraModules\Structures;
 use Sahakavatar\Cms\Services\CmsItemRegister;
-use Sahakavatar\Console\Models\Menu;
-use Sahakavatar\Modules\Models\Routes;
-use Sahakavatar\Uploads\Models\Upload;
-use Sahakavatar\Uploads\Models\Validation as validateUpl;
+use Btybug\Console\Models\Menu;
+use Btybug\Modules\Models\Routes;
+use Btybug\Uploads\Models\Upload;
+use Btybug\Uploads\Models\Validation as validateUpl;
 
 /**
  * Class ModulesController
- * @package Sahakavatar\Modules\Http\Controllers
+ * @package Btybug\Modules\Http\Controllers
  */
 class ModulesController extends Controller
 {

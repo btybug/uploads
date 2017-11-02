@@ -1,4 +1,4 @@
-<?php namespace Sahakavatar\Uploads\Http\Controllers;
+<?php namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use File;
@@ -8,7 +8,7 @@ use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use Sahakavatar\Cms\Models\Templates\Units;
 use Sahakavatar\Cms\Services\CmsItemReader;
 use Sahakavatar\Cms\Services\CmsItemUploader;
-use Sahakavatar\Resources\Models\Validation as validateUpl;
+use Btybug\Resources\Models\Validation as validateUpl;
 use View;
 
 

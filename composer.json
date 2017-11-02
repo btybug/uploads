@@ -1,5 +1,5 @@
 {
-  "name": "sahak.avatar/uploads",
+  "name": "btybug/uploads",
   "description": "uploads description",
   "authors": [
     {
@@ -12,7 +12,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Sahakavatar\\Uploads\\": "src/"
+      "Btybug\\Uploads\\": "src/"
     }
   }
 }

@@ -1,4 +1,4 @@
-<?php namespace Sahakavatar\Uploads\Http\Controllers;
+<?php namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -6,7 +6,7 @@ use Resources;
 use Sahakavatar\Cms\Models\Sections;
 use Sahakavatar\Cms\Services\CmsItemReader;
 use Sahakavatar\Cms\Services\CmsItemUploader;
-use Sahakavatar\Modules\Models\AdminPages;
+use Btybug\Modules\Models\AdminPages;
 use View;
 
 

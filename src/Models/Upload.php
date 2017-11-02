@@ -9,7 +9,7 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Models;
+namespace Btybug\Uploads\Models;
 
 use App\Models\ExtraModules\Modules;
 use App\Models\ExtraModules\Structures;
@@ -22,7 +22,7 @@ use Zipper;
 
 /**
  * Class Upload
- * @package Sahakavatar\Modules\Models
+ * @package Btybug\Modules\Models
  */
 class Upload
 {

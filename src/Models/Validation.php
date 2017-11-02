@@ -9,10 +9,10 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Models;
+namespace Btybug\Uploads\Models;
 
 use File;
-use Sahakavatar\Uploads\Interfaces\vInterfase;
+use Btybug\Uploads\Interfaces\vInterfase;
 use Validator;
 
 

@@ -16,13 +16,13 @@
  * Time: 10:55 PM
  */
 
-namespace Sahakavatar\Uploads\Models;
+namespace Btybug\Uploads\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Styles
- * @package Sahakavatar\Resources\Models
+ * @package Btybug\Resources\Models
  */
 class Styles extends Model
 {
@@ -65,7 +65,7 @@ class Styles extends Model
      */
     public function items()
     {
-        return $this->hasMany('Sahakavatar\Uploads\Models\StyleItems', 'style_id');
+        return $this->hasMany('Btybug\Uploads\Models\StyleItems', 'style_id');
     }
 
 

@@ -9,7 +9,7 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Datatables;
@@ -17,10 +17,10 @@ use File;
 use Illuminate\Http\Request;
 use Sahakavatar\Cms\Helpers\dbhelper;
 use Sahakavatar\Cms\Helpers\helpers;
-use Sahakavatar\Uploads\Models\Style;
-use Sahakavatar\Uploads\Models\StyleItems;
-use Sahakavatar\Uploads\Models\Styles;
-use Sahakavatar\Uploads\Models\StyleUpload;
+use Btybug\Uploads\Models\Style;
+use Btybug\Uploads\Models\StyleItems;
+use Btybug\Uploads\Models\Styles;
+use Btybug\Uploads\Models\StyleUpload;
 use View;
 
 

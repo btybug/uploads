@@ -9,7 +9,7 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Interfaces;
+namespace Btybug\Uploads\Interfaces;
 
 /**
  * Interface vInterfase

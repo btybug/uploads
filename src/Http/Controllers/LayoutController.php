@@ -9,7 +9,7 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Themes\Themes;
@@ -19,7 +19,7 @@ use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 
 /**
  * Class ModulesController
- * @package Sahakavatar\Modules\Http\Controllers
+ * @package Btybug\Modules\Http\Controllers
  */
 class LayoutController extends Controller
 {

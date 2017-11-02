@@ -9,7 +9,7 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Http\Controllers;
+namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ExtraModules\Structures;
@@ -18,13 +18,13 @@ use Illuminate\Http\Request;
 use Sahakavatar\Cms\Helpers\helpers;
 use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
 use Sahakavatar\Cms\Models\Templates\Units;
-use Sahakavatar\Modules\Models\AdminPages;
-use Sahakavatar\Modules\Models\Routes;
-use Sahakavatar\User\Models\Roles;
+use Btybug\Modules\Models\AdminPages;
+use Btybug\Modules\Models\Routes;
+use Btybug\User\Models\Roles;
 
 /**
  * Class ModulesController
- * @package Sahakavatar\Modules\Http\Controllers
+ * @package Btybug\Modules\Http\Controllers
  */
 class ModulesSettingsController extends Controller
 {

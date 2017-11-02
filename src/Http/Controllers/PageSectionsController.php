@@ -1,4 +1,4 @@
-<?php namespace Sahakavatar\Uploads\Http\Controllers;
+<?php namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use View;
 
 /**
  * Class SectionsController
- * @package Sahakavatar\Console\Http\Controllers
+ * @package Btybug\Console\Http\Controllers
  */
 class PageSectionsController extends Controller
 {

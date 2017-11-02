@@ -1,4 +1,4 @@
-@extends('cms::layouts.admin')
+@extends('btybug::layouts.admin')
 @section('content')
     <div class="row list_222">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cms_module_list module_list_1">
@@ -6,7 +6,7 @@
                 <span class="module_icon_main"></span>
 
                 <span class="module_icon_main_text">
-                    {!! Form::select('styles',\Sahakavatar\Resources\Models\Styles::$stylesTypes,$type,['class' => 'form-control select-type']) !!}
+                    {!! Form::select('styles',\Btybug\Resources\Models\Styles::$stylesTypes,$type,['class' => 'form-control select-type']) !!}
                 </span>
             </h3>
             <hr>

@@ -9,14 +9,14 @@
  *
  */
 
-namespace Sahakavatar\Uploads\Models;
+namespace Btybug\Uploads\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Sahakavatar\Cms\Helpers\helpers;
 
 /**
  * Class StyleItems
- * @package Sahakavatar\Resources\Models
+ * @package Btybug\Resources\Models
  */
 class Style extends Model
 {
@@ -163,7 +163,7 @@ class Style extends Model
      */
     public function classe()
     {
-        return $this->belongsTo('Sahakavatar\Uploads\Models\Styles', 'style_id');
+        return $this->belongsTo('Btybug\Uploads\Models\Styles', 'style_id');
     }
 }
 
