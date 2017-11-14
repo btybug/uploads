@@ -13,7 +13,7 @@ namespace Btybug\Uploads\Interfaces;
 
 /**
  * Interface vInterfase
- * @package Sahakavatar\Packeges\Interfases
+ * @package Btybug\Packeges\Interfases
  */
 interface vInterfase
 {

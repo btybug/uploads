@@ -1,4 +1,4 @@
-@extends('btybug::layouts.uiPreview')
+@extends('cms::layouts.uiPreview')
 
 @section('content')
     <div class="previewlivesettingifream">
@@ -10,12 +10,12 @@
 
 @section('CSS')
 
-    {!! HTML::style('/css/preview-template.css') !!}
-    {!! HTML::style("/js/animate/css/animate.css") !!}
-    {!! HTML::style("/css/preview-template.css") !!}
+    {!! HTML::style('public/css/preview-template.css') !!}
+    {!! HTML::style("public/js/animate/css/animate.css") !!}
+    {!! HTML::style("public/css/preview-template.css") !!}
 @stop
 @section('JS')
-    {!! HTML::script("/js/UiElements/ui-preview-setting.js?v=99") !!}
-    {!! HTML::script("/js/UiElements/ui-settings.js") !!}
-    {!! HTML::script("/js/UiElements/bb_div.js") !!}
+    {!! HTML::script("public/js/UiElements/ui-preview-setting.js?v=99") !!}
+    {!! HTML::script("public/js/UiElements/ui-settings.js") !!}
+    {!! HTML::script("public/js/UiElements/bb_div.js") !!}
 @stop

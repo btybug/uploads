@@ -7,13 +7,12 @@
                     <div class="tempalte_icon">
                     </div>
                 </div>
-                {{-- <span>{{ isset($url) ? $url : '' }}</span>--}}
                 <div class=" templates-header ">
                     <span class=" templates-title text-center"><i class="fa fa-bars f-s-13 m-r-5"
                                                                   aria-hidden="true"></i> {!! $ui->title !!}</span>
-                    <a data-href="{!! url('/admin/uploads/gears/units/delete') !!}" data-key="{!! $ui->slug !!}"
+                    <a data-href="{!! url('/admin/uploads/gears/delete') !!}" data-key="{!! $ui->slug !!}"
                        data-type="Unit" class="p-a-r-10-t-0 delete-button btn btn-danger"><i class="fa fa-trash-o"></i></a>
-                    <a href="{!! url('/admin/uploads/units/units-variations', $ui->slug) !!}" style="position: absolute;top: 0%;left: 10px;"
+                    <a href="{!! url('/admin/uploads/gears/units-variations', $ui->slug) !!}" style="position: absolute;top: 0%;left: 10px;"
                        class="m-r-10 m-l-5 edit-button btn btn-info"><i class="fa fa-pencil-square-o"></i> </a>
                     <div class=" templates-buttons text-center ">
                         <span class="authorColumn"><i class="fa fa-user author-icon" aria-hidden="true"></i>

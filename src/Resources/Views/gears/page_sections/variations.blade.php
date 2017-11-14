@@ -1,4 +1,4 @@
-@extends('btybug::layouts.admin')
+@extends('cms::layouts.admin')
 @section('content')
 
     <ol class="breadcrumb">
@@ -14,7 +14,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         Variations for [{{ $pageSection->title }}] unit
-                        <a href="{!! url('/admin/uploads/gears/page-sections/settings', $pageSection->slug) !!}" class="btn btn-xs btn-success pull-right" id="new-variation"
+                        <a href="{!! url('/admin/uploads/layouts/settings', $pageSection->slug) !!}" class="btn btn-xs btn-success pull-right" id="new-variation"
                            style="color:#fff;">New Variation</a>
                         <a href="#" class="btn btn-xs btn-primary pull-right">Primary hooks settings</a>
                     </h4>
@@ -35,11 +35,11 @@
                                        data-title="Template Variation Title">{{$variation_data->title}}</a></td>
                                 </td>
                                 <td>
-                                    <a href="{!! url('/admin/uploads/gears/page-sections/settings', $variation_data->id) !!}"
+                                    <a href="{!! url('/admin/uploads/layouts/settings', $variation_data->id) !!}"
                                        class="btn btn-default btn-warning btn-xs">&nbsp;<i class="fa fa-cog"></i>&nbsp;</a>
                                     <a href="#"
                                        class="btn btn-info btn-xs">&nbsp;<i class="fa fa-cog"></i>&nbsp;hooks</a>
-                                    <a href="/admin/uploads/gears/page-sections/delete-variation/{{$variation_data->id}}"
+                                    <a href="/admin/uploads/layouts/delete-variation/{{$variation_data->id}}"
                                        class="btn btn-danger btn-xs"
                                        onclick="return confirm('Are you sure to delete')"> &nbsp;<i
                                                 class="fa fa-trash"></i> &nbsp;</a>
@@ -89,11 +89,11 @@
 @stop
 
 @section('CSS')
-    {!! HTML::style('js/bootstrap-editable/css/bootstrap-editable.css') !!}
+    {!! HTML::style('public/js/bootstrap-editable/css/bootstrap-editable.css') !!}
 @stop
 
 @section('JS')
-    {!! HTML::script('js/bootstrap-editable/js/bootstrap-editable.min.js') !!}
+    {!! HTML::script('public/js/bootstrap-editable/js/bootstrap-editable.min.js') !!}
     <script>
         $('#new-variation').click(function () {
             $('.new-variation').removeClass('hide');

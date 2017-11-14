@@ -4,10 +4,10 @@ use App\Http\Controllers\Controller;
 use File;
 use Illuminate\Http\Request;
 use Resources;
-use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
-use Sahakavatar\Cms\Models\Templates\Units;
-use Sahakavatar\Cms\Services\CmsItemReader;
-use Sahakavatar\Cms\Services\CmsItemUploader;
+use Btybug\Cms\Models\ContentLayouts\ContentLayouts;
+use Btybug\Cms\Models\Templates\Units;
+use Btybug\Cms\Services\CmsItemReader;
+use Btybug\Cms\Services\CmsItemUploader;
 use Btybug\Resources\Models\Validation as validateUpl;
 use View;
 
@@ -35,6 +35,12 @@ class UnitsController extends Controller
     }
 
     public function getIndex(Request $request)
+    {
+        $units = Units::all()->run();
+        return view("uploads::gears.units.index", compact(['units']));
+    }
+
+    public function getFrontend(Request $request)
     {
         $units = Units::all()->run();
         return view("uploads::gears.units.index", compact(['units']));
@@ -124,8 +130,8 @@ class UnitsController extends Controller
         $ifrem = [];
         $settings = (isset($variation->settings) && $variation->settings) ? $variation->settings : [];
 
-        $ifrem['body'] = url('/admin/uploads/units/settings-iframe', $id);
-        $ifrem['settings'] = url('/admin/uploads/units/settings-iframe', $id) . '/settings';
+        $ifrem['body'] = url('/admin/uploads/gears/settings-iframe', $id);
+        $ifrem['settings'] = url('/admin/uploads/gears/settings-iframe', $id) . '/settings';
 
         return view('uploads::gears.preview', compact(['ui', 'id', 'ifrem', 'settings']));
 
@@ -155,7 +161,7 @@ class UnitsController extends Controller
 
         return response()->json([
             'error' => $output ? false : true,
-            'url' => $output ? url('/admin/uploads/gears/units/settings/' . $output['slug']) : false,
+            'url' => $output ? url('/admin/uploads/gears/settings/' . $output['slug']) : false,
             'html' => $output ? $output['html'] : false
         ]);
     }

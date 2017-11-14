@@ -13,12 +13,12 @@ namespace Btybug\Uploads\Models;
 
 use File;
 use Illuminate\Http\Request;
-use Sahakavatar\Cms\Helpers\helpers;
+use Btybug\Cms\Helpers\helpers;
 use Zipper;
 
 /**
  * Class TplUpload
- * @package Sahakavatar\Packeges\Models
+ * @package Btybug\Packeges\Models
  */
 class StyleUpload
 {

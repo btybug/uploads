@@ -52,13 +52,24 @@ class ModuleServiceProvider extends ServiceProvider
 
             'upload_gears' => [
                 [
-                    'title' => 'Frontend widgets',
-                    'url' => '/admin/uploads/gears/front-end',
+                    'title' => 'Backend',
+                    'url' => '/admin/uploads/gears',
                     'icon' => 'fa fa-cub'
                 ],
                 [
-                    'title' => 'Backend widgets ',
-                    'url' => '/admin/uploads/gears/back-end',
+                    'title' => 'Frontend',
+                    'url' => '/admin/uploads/gears/front-end',
+                    'icon' => 'fa fa-cub'
+                ],
+            ],'upload_layouts' => [
+                [
+                    'title' => 'Backend',
+                    'url' => '/admin/uploads/layouts',
+                    'icon' => 'fa fa-cub'
+                ],
+                [
+                    'title' => 'Frontend',
+                    'url' => '/admin/uploads/layouts/front-end',
                     'icon' => 'fa fa-cub'
                 ],
             ], 'uploads_assets' => [
@@ -77,12 +88,64 @@ class ModuleServiceProvider extends ServiceProvider
                     'url' => '/admin/uploads/assets/files',
                     'icon' => 'fa fa-cub'
                 ],
+            ],
+            'upload_assets' => [
+                [
+                    'title' => 'Js',
+                    'url' => '/admin/uploads/assets/js',
+                ],
+                [
+                    'title' => 'Css',
+                    'url' => '/admin/uploads/assets/css',
+                ],
+                [
+                    'title' => 'Fonts',
+                    'url' => '/admin/uploads/assets/fonts',
+                ]
+            ],
+            'upload_modules' => [
+                [
+                    'title' => 'Core Packages',
+                    'url' => '/admin/uploads/modules',
+                ],
+                [
+                    'title' => 'Extra Packages',
+                    'url' => '/admin/uploads/modules/extra',
+                ]
+            ],
+            'upload_apps' => [
+                [
+                    'title' => 'Core Apps',
+                    'url' => '/admin/uploads/apps',
+                ],
+                [
+                    'title' => 'Extra Apps',
+                    'url' => '/admin/uploads/apps/extra',
+                ]
+            ],
+            'upload_market' => [
+                [
+                    'title' => 'Market',
+                    'url' => '/admin/uploads/market',
+                ],
+                [
+                    'title' => 'Composer',
+                    'url' => '/admin/uploads/composer',
+                ]
             ]
         ];
+
         \Eventy::action('my.tab', $tubs);
 
+        global $_PLUGIN_PROVIDERS;
+//        dd($_PLUGIN_PROVIDERS);
+        if (isset($_PLUGIN_PROVIDERS['pluginProviders'])) {
+            foreach ($_PLUGIN_PROVIDERS['pluginProviders'] as $namespace => $options) {
+                $this->app->register($namespace, $options['options'], $options['force']);
+            }
+        }
         //TODO; remove when finish all
-     //   \Sahakavatar\Cms\Models\Routes::registerPages('sahak.avatar/uploads');
+     //   \Btybug\Cms\Models\Routes::registerPages('sahak.avatar/uploads');
     }
 
     /**

@@ -77,9 +77,9 @@ class RouteServiceProvider extends ServiceProvider
         Route::group([
             'middleware' => 'api',
             'namespace' => $this->namespace,
-            'prefix' => 'api',
+            'prefix' => 'uploads/api',
         ], function ($router) {
-            require __DIR__ . '/../Routes/web.php';
+            require __DIR__ . '/../Routes/api.php';
         });
     }
 }

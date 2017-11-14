@@ -14,7 +14,7 @@ namespace Btybug\Uploads\Http\Controllers;
 use App\Http\Controllers\Controller;
 use File;
 use Illuminate\Http\Request;
-use Sahakavatar\Cms\Models\Widgets;
+use Btybug\Cms\Models\Widgets;
 use Btybug\Resources\Models\UiUpload;
 
 /**

@@ -1,5 +1,5 @@
-@extends('btybug::layouts.admin')
-@section('content')
+@extends('cms::layouts.mTabs',['index'=>'upload_layouts'])
+@section('tab')
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-info btn-sm pull-right btnUploadWidgets m-r-15 m-b-15" type="button"
@@ -139,7 +139,7 @@
                     <h4 class="modal-title" id="myModalLabel">Upload</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['url'=>'/admin/uploads/gears/page-sections/upload','class'=>'dropzone', 'id'=>'my-awesome-dropzone']) !!}
+                    {!! Form::open(['url'=>'/admin/uploads/layouts/upload','class'=>'dropzone', 'id'=>'my-awesome-dropzone']) !!}
                     {!! Form::hidden('data_type','files',['id'=>"dropzone_hiiden_data"]) !!}
                     {!! Form::close() !!}
                 </div>
@@ -149,8 +149,8 @@
     @include('cms::_partials.delete_modal')
 @stop
 @section('CSS')
-    {!! HTML::style('css/new-store.css') !!}
-    {!! HTML::style('/js/bootstrap-select/css/bootstrap-select.min.css') !!}
+    {!! HTML::style('public/css/new-store.css') !!}
+    {!! HTML::style('public/js/bootstrap-select/css/bootstrap-select.min.css') !!}
     <style>
         .child-tpl {
             width: 95% !important;
@@ -167,8 +167,8 @@
     </style>
 @stop
 @section('JS')
-    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
-    {!! HTML::script('/js/bootstrap-select/js/bootstrap-select.min.js') !!}
+    {!! HTML::script('public/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script('public/js/bootstrap-select/js/bootstrap-select.min.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function () {
@@ -183,7 +183,7 @@
             if (r == true) {
                 var slug = $(data).data('slug');
                 $.ajax({
-                    url: '/admin/uploads/gears/units/delete',
+                    url: '/admin/uploads/layouts/delete',
                     data: {
                         slug: slug
                     }, headers: {

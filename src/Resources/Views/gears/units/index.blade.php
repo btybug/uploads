@@ -1,7 +1,5 @@
-@extends('btybug::layouts.admin')
-<!-- Nav tabs -->
-@section('content')
-
+@extends('cms::layouts.mTabs',['index'=>'upload_gears'])
+@section('tab')
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-info btn-sm pull-right btnUploadWidgets m-r-15 m-b-15" type="button"
@@ -10,8 +8,6 @@
                 <i class="fa fa-cloud-upload module_upload_icon"></i> <span class="upload_module_text">Upload</span>
             </button>
         </div>
-
-
     </div>
     <div class="col-md-4 ">
         <div class="panel panel-default">
@@ -150,7 +146,7 @@
                     <h4 class="modal-title" id="myModalLabel">Upload</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['url'=>'/admin/uploads/gears/units/upload','class'=>'dropzone', 'id'=>'my-awesome-dropzone']) !!}
+                    {!! Form::open(['url'=>'/admin/uploads/gears/upload','class'=>'dropzone', 'id'=>'my-awesome-dropzone']) !!}
                     {!! Form::hidden('data_type','files',['id'=>"dropzone_hiiden_data"]) !!}
                     {!! Form::close() !!}
                 </div>
@@ -160,8 +156,8 @@
     @include('cms::_partials.delete_modal')
 @stop
 @section('CSS')
-    {!! HTML::style('css/new-store.css') !!}
-    {!! HTML::style('/js/bootstrap-select/css/bootstrap-select.min.css') !!}
+    {!! HTML::style('public/css/new-store.css') !!}
+    {!! HTML::style('public/js/bootstrap-select/css/bootstrap-select.min.css') !!}
     <style>
         .child-tpl {
             width: 95% !important;
@@ -178,7 +174,7 @@
     </style>
 @stop
 @section('JS')
-    {!! HTML::script('/js/dropzone/js/dropzone.js') !!}
+    {!! HTML::script('public/js/dropzone/js/dropzone.js') !!}
     <script>
         Dropzone.options.myAwesomeDropzone = {
             init: function () {
@@ -193,7 +189,7 @@
             if (r == true) {
                 var slug = $(data).data('slug');
                 $.ajax({
-                    url: '/admin/uploads/gears/units/delete',
+                    url: '/admin/uploads/gears/delete',
                     data: {
                         slug: slug
                     }, headers: {

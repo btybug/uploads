@@ -1,8 +1,10 @@
+{!! HTML::script("public/js/jquery-2.1.4.min.js") !!}
+{!! HTML::script("public/js/bootstrap.js?v=".rand('1111','9999')) !!}
 {!! BBCss()  !!}
-{!! HTML::style("/css/font-awesome/css/font-awesome.min.css") !!}
-{!! HTML::style("/js/jquery-ui/jquery-ui.min.css") !!}
-{!! HTML::style("/css/preview-template.css") !!}
-{!! HTML::style('/css/cms.css') !!}
+{!! HTML::style("public/css/font-awesome/css/font-awesome.min.css") !!}
+{!! HTML::style("public/js/jquery-ui/jquery-ui.min.css") !!}
+{!! HTML::style("public/css/preview-template.css") !!}
+{!! HTML::style('public/css/cms.css') !!}
 {!! HTML::style('custom/css/'.$ui->slug.'.css') !!}
 <body>
 {!! csrf_field() !!}
@@ -27,11 +29,10 @@
 <button data-settingaction="save" class="hide" id="settings_savebtn"></button>
 <input type="hidden" id="hidden_data" value='{!!$settings_json!!}'>
 <body>
-{!! BBJquery() !!}
 {!! BBMainFrontJS() !!}
-{!! HTML::script("/js/UiElements/bb_styles.js?v.5") !!}
-{!! HTML::script("/js/UiElements/ui-preview-setting.js?v=999") !!}
-{!! HTML::script("/js/UiElements/ui-settings.js") !!}
+{!! HTML::script("public/js/UiElements/bb_styles.js?v.5") !!}
+{!! HTML::script("public/js/UiElements/ui-preview-setting.js?v=999") !!}
+{!! HTML::script("public/js/UiElements/ui-settings.js") !!}
 @if(isset($ui))
     {!! HTML::script('custom/js/'.str_replace(' ','-',$ui->slug).'.js') !!}
 @endif

@@ -14,8 +14,8 @@ namespace Btybug\Uploads\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Themes\Themes;
 use Illuminate\Http\Request;
-use Sahakavatar\Cms\Helpers\helpers;
-use Sahakavatar\Cms\Models\ContentLayouts\ContentLayouts;
+use Btybug\Cms\Helpers\helpers;
+use Btybug\Cms\Models\ContentLayouts\ContentLayouts;
 
 /**
  * Class ModulesController
