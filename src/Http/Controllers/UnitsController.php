@@ -31,6 +31,7 @@ class UnitsController extends Controller
         $this->validateUpl = new $validateUpl;
         $this->up = config('paths.ui_elements_uplaod');
         $this->tp = config('paths.units_path');
+        //$this->unitTypes = $this->types = @json_decode(File::get(config('paths.unit_path') . 'configTypes.json'), 1)['types'];
     }
 
     public function getIndex(Request $request)
