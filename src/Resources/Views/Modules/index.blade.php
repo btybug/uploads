@@ -29,6 +29,13 @@
                             </a>
                         </div>
                         <div class="col-xs-6">
+                            <a class="btn  btn-info  m-b-10 upload_module" href="{!! route('update_cms') !!}">
+                                <i class="fa fa-refresh" aria-hidden="true"></i>
+                                <span class="upload_module_text">Update CMS</span>
+
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
                         </div>
                     </div>
                     @if($selected)

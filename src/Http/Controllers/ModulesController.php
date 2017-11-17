@@ -19,7 +19,7 @@ use Symfony\Component\Console\Tests\Input\StringInput;
 
 class ModulesController extends Controller
 {
-    public function getChilds ()
+    public function getChilds()
     {
         return view('uploads::index');
     }
@@ -57,5 +57,28 @@ class ModulesController extends Controller
         $plugin = $plugins->find($repository . '/' . $package);
         $units = $plugin->units();
         return view('uploads::Explores.index', compact('plugin', 'units'));
+    }
+
+    public function getUpdateCms()
+    {
+        $url = url();
+        self::rrmdir(__DIR__ . '/../../../../../../vendor');
+        header("Location:$url");
+    }
+
+    public static function rrmdir($dir)
+    {
+        if (is_dir($dir)) {
+            $objects = scandir($dir);
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    if (is_dir($dir . "/" . $object))
+                        rrmdir($dir . "/" . $object);
+                    else
+                        unlink($dir . "/" . $object);
+                }
+            }
+            rmdir($dir);
+        }
     }
 }
