@@ -14,7 +14,7 @@ namespace Btybug\Uploads\Http\Controllers;
 use App\Http\Controllers\Controller;
 use File;
 use Illuminate\Http\Request;
-use Btybug\Cms\Models\Widgets;
+use Btybug\btybug\Models\Widgets;
 use Btybug\Resources\Models\UiUpload;
 
 /**

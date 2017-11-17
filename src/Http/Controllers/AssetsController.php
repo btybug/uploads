@@ -12,7 +12,7 @@
 namespace Btybug\Uploads\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Btybug\Cms\Helpers\helpers;
+use Btybug\btybug\Helpers\helpers;
 use Btybug\Uploads\Repository\VersionsRepository;
 use Btybug\Uploads\Services\VersionsService;
 

@@ -1,4 +1,4 @@
-@extends('cms::layouts.sections')
+@extends('btybug::layouts.sections')
 @section('content')
     <div class="center-block" id="widget_container">
         {!! $html !!}

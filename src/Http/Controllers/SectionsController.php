@@ -3,9 +3,9 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Resources;
-use Btybug\Cms\Models\Sections;
-use Btybug\Cms\Services\CmsItemReader;
-use Btybug\Cms\Services\CmsItemUploader;
+use Btybug\btybug\Models\Sections;
+use Btybug\btybug\Services\CmsItemReader;
+use Btybug\btybug\Services\CmsItemUploader;
 use Btybug\Modules\Models\AdminPages;
 use View;
 

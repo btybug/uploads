@@ -16,44 +16,10 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/Lang', 'uploads');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'uploads');
         $tubs = [
-            'frontend_gears' => [
-
-                [
-                    'title' => 'H&F',
-                    'url' => '/admin/uploads/gears/h-f',
-                    'icon' => 'fa fa-cub'
-                ],
-                [
-                    'title' => 'Page Layouts',
-                    'url' => '/admin/uploads/gears/page-sections',
-                    'icon' => 'fa fa-cub'
-                ],
-                [
-                    'title' => 'Sections',
-                    'url' => '/admin/uploads/gears/sections',
-                    'icon' => 'fa fa-cub'
-                ],
-                [
-                    'title' => 'Main Content',
-                    'url' => '/admin/uploads/gears/main-body',
-                    'icon' => 'fa fa-cub'
-                ],
-                [
-                    'title' => 'Units',
-                    'url' => '/admin/uploads/gears/units',
-                    'icon' => 'fa fa-cub'
-                ],
-                [
-                    'title' => 'Component',
-                    'url' => '/admin/uploads/gears/component',
-                    'icon' => 'fa fa-cub'
-                ]
-            ],
-
             'upload_gears' => [
                 [
                     'title' => 'Backend',
-                    'url' => '/admin/uploads/gears',
+                    'url' => '/admin/uploads/gears/back-end',
                     'icon' => 'fa fa-cub'
                 ],
                 [
@@ -64,7 +30,7 @@ class ModuleServiceProvider extends ServiceProvider
             ],'upload_layouts' => [
                 [
                     'title' => 'Backend',
-                    'url' => '/admin/uploads/layouts',
+                    'url' => '/admin/uploads/layouts/back-end',
                     'icon' => 'fa fa-cub'
                 ],
                 [
@@ -145,7 +111,7 @@ class ModuleServiceProvider extends ServiceProvider
             }
         }
         //TODO; remove when finish all
-     //   \Btybug\Cms\Models\Routes::registerPages('sahak.avatar/uploads');
+     //   \Btybug\btybug\Models\Routes::registerPages('sahak.avatar/uploads');
     }
 
     /**

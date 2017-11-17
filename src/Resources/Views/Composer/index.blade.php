@@ -1,4 +1,4 @@
-@extends('cms::layouts.mTabs',['index'=>'upload_market'])
+@extends('btybug::layouts.mTabs',['index'=>'upload_market'])
 <!-- Nav tabs -->
 @section('tab')
 

@@ -1,4 +1,4 @@
-@extends('cms::layouts.mTabs',['index'=>'upload_assets'])
+@extends('btybug::layouts.mTabs',['index'=>'upload_assets'])
 @section('tab')
     <div class="col-md-12">
         <div class="col-md-12">
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    @include('cms::_partials.delete_modal')
+    @include('btybug::_partials.delete_modal')
     @include('uploads::assets._partials.upload_js_modal')
     @include('uploads::assets._partials.update_js_modal')
     @include('uploads::assets._partials.update_live_modal')

@@ -12,7 +12,7 @@
 namespace Btybug\Uploads\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Btybug\Cms\Helpers\helpers;
+use Btybug\btybug\Helpers\helpers;
 
 /**
  * Class StyleItems

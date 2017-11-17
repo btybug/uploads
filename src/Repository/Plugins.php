@@ -9,7 +9,7 @@
 namespace Btybug\Uploads\Repository;
 
 //TODO replace base_path() with plugins_path()
-use Btybug\Cms\Models\Templates\Units;
+use Btybug\btybug\Models\Templates\Units;
 
 /**
  * Class Plugins
@@ -89,7 +89,7 @@ class Plugins
 
     public function modules()
     {
-        $this->path = base_path('vendor' . DS . 'sahak.avatar' . DS . 'cms' . DS . 'composer.json');
+        $this->path = base_path('vendor' . DS . 'btybug' . DS . 'btybug' . DS . 'composer.json');
         $this->dir = config('avatar.modules.path');
         $this->type = 'module';
         $this->separator();

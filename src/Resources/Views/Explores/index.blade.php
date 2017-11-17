@@ -1,4 +1,4 @@
-@extends('cms::layouts.admin')
+@extends('btybug::layouts.admin')
 @section('content')
     <div class="col-md-4 ">
         <div class="panel panel-default">

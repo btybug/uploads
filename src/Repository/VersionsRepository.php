@@ -2,7 +2,7 @@
 
 namespace Btybug\Uploads\Repository;
 
-use Btybug\Cms\Repositories\GeneralRepository;
+use Btybug\btybug\Repositories\GeneralRepository;
 use Btybug\Framework\Models\Versions;
 
 class VersionsRepository extends GeneralRepository

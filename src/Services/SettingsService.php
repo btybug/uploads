@@ -9,9 +9,9 @@
 
 namespace Btybug\Uploads\Services;
 
-use Btybug\Cms\Services\GeneralService;
+use Btybug\btybug\Services\GeneralService;
 use Btybug\Framework\Repository\VersionsRepository;
-use Btybug\Settings\Repository\AdminsettingRepository;
+use Btybug\btybug\Repositories\AdminsettingRepository;
 
 /**
  * Class ThemeService

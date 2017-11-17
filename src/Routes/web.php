@@ -10,48 +10,72 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::get('/', 'ModulesController@getChilds');
+Route::get('/', 'ModulesController@getChilds',true);
 
-Route::get('/optimisation', function () {
-    Artisan::call('plugin:optimaze');
-    return redirect()->back()->with(['flash' => ['message' => 'modules optimisation successfully!!!']]);
-});
+//Route::get('/optimisation', function () {
+//    Artisan::call('plugin:optimaze');
+//    return redirect()->back()->with(['flash' => ['message' => 'modules optimisation successfully!!!']]);
+//});
 
 Route::group(['prefix' => 'modules'], function () {
-    Route::get('/', 'ModulesController@getIndex')->name('modules_index');
-    Route::get('/{repository}/{package}/explore', 'ModulesController@getExplore');
+    Route::get('/', 'ModulesController@getIndex',true)->name('modules_index');
+//    Route::get('/', 'ModulesController@getIndex')->name('modules_index');
+    Route::get('/{repository}/{package}/explore', 'ModulesController@getExplore',true);
 
     Route::group(['prefix' => 'extra'], function () {
-        Route::get('/', 'PluginsController@getIndex')->name('plugins_index');
-        Route::get('/{repository}/{package}/explore', 'PluginsController@getExplore');
+        Route::get('/', 'PluginsController@getIndex',true)->name('plugins_index');
+        Route::get('/{repository}/{package}/explore', 'PluginsController@getExplore',true);
     });
-});
-
-Route::group(['prefix' => 'composer'], function ($router) {
-    Route::get('/', 'ComposerController@getIndex')->name('composer_index');
-    Route::post('/main', 'ComposerController@getMain')->name('composer_main');
-    Route::post('plugin-on-off', 'ComposerController@getOnOff')->name('on_off');
-});
-
-Route::group(['prefix' => 'market'], function ($router) {
-    Route::get('/', 'MarketController@getIndex')->name('composer_market');
 });
 
 Route::group(['prefix' => 'apps'], function ($router) {
-    Route::get('/', 'AppsController@getIndex')->name('app_plugins');
-    Route::get('/{repository}/{package}/explore', 'AppsController@getExplore');
+    Route::get('/', 'AppsController@getIndex',true)->name('app_plugins');
+    Route::get('/{repository}/{package}/explore', 'AppsController@getExplore',true);
 
     Route::group(['prefix' => 'extra'], function () {
-        Route::get('/', 'AppsController@getExtra')->name('app_extra');
-        Route::get('/{repository}/{package}/explore', 'AppsController@getExplore');
+        Route::get('/', 'AppsController@getExtra',true)->name('app_extra');
+        Route::get('/{repository}/{package}/explore', 'AppsController@getExplore',true);
     });
 });
 
+Route::group(['prefix' => 'gears'], function () {
+    Route::get('/', function () {
+        return view("uploads::gears.units.list");
+    },true);
+    Route::get('/back-end', 'UnitsController@getIndex',true);
+    Route::get('/front-end', 'UnitsController@getFrontend',true);
+    Route::post('/upload', 'UnitsController@postUploadUnit');
+    Route::get('/delete-variation/{slug}', 'UnitsController@postDeleteVariation');
+    Route::get('/units-variations/{slug}', 'UnitsController@getUnitVariations',true);
+    Route::post('/units-variations/{slug}', 'UnitsController@postUnitVariations');
+    Route::get('/live-settings/{slug}', 'UnitsController@unitPreview',true);
+    Route::get('/settings/{slug?}', 'UnitsController@getSettings',true);
+    Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe',true);
+    Route::post('/settings/{id}/{save?}', 'UnitsController@postSettings');
+    Route::post('/delete', 'UnitsController@postDelete');
+});
+
+Route::group(['prefix' => 'layouts'], function () {
+    Route::get('/', function () {
+        return view("uploads::gears.page_sections.list");
+    },true);
+    Route::get('/back-end', 'PageSectionsController@getIndex',true);
+    Route::get('/front-end', 'PageSectionsController@getFrontend',true);
+    Route::get('/settings/{slug}', 'PageSectionsController@getSettings',true);
+    Route::get('/variations/{slug}', 'PageSectionsController@getVariations',true);
+    Route::post('/settings/{slug}/{save?}', 'PageSectionsController@postSettings');
+    Route::post('/console', 'PageSectionsController@getConsole');
+    Route::post('/make-active', 'PageSectionsController@postMakeActive');
+    Route::post('/upload', 'PageSectionsController@postUpload');
+    Route::get('/delete-variation/{slug}', 'PageSectionsController@postDeleteVariation');
+    Route::post('/delete', 'PageSectionsController@postDelete');
+});
+
 Route::group(['prefix' => 'assets'], function () {
-    Route::get('/', 'AssetsController@getIndex');
-    Route::get('/js', 'AssetsController@getJs');
-    Route::get('/css', 'AssetsController@getCss');
-    Route::get('/fonts', 'AssetsController@getFonts');
+    Route::get('/', 'AssetsController@getIndex',true);
+    Route::get('/js', 'AssetsController@getJs',true);
+    Route::get('/css', 'AssetsController@getCss',true);
+    Route::get('/fonts', 'AssetsController@getFonts',true);
 
     Route::post('/', 'AssetsController@postUploadJs');
     Route::post('/change-version', 'AssetsController@postChangeVersion');
@@ -65,72 +89,11 @@ Route::group(['prefix' => 'assets'], function () {
     Route::post('/delete', 'AssetsController@delete');
 });
 
-Route::group(['prefix' => 'gears'], function () {
-    Route::get('/', 'UnitsController@getIndex');
-    Route::get('/front-end', 'UnitsController@getFrontend');
-
-    Route::post('/upload', 'UnitsController@postUploadUnit');
-    Route::get('/delete-variation/{slug}', 'UnitsController@postDeleteVariation');
-    Route::get('/units-variations/{slug}', 'UnitsController@getUnitVariations');
-    Route::post('/units-variations/{slug}', 'UnitsController@postUnitVariations');
-
-    Route::get('/live-settings/{slug}', 'UnitsController@unitPreview');
-
-    Route::get('/settings/{slug?}', 'UnitsController@getSettings');
-    Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe');
-    Route::post('/settings/{id}/{save?}', 'UnitsController@postSettings');
-    Route::post('/delete', 'UnitsController@postDelete');
-});
-
-Route::group(['prefix' => 'layouts'], function () {
-    Route::get('/', 'PageSectionsController@getIndex');
-    Route::get('/front-end', 'PageSectionsController@getFrontend');
-    Route::get('/settings/{slug}', 'PageSectionsController@getSettings');
-    Route::get('/variations/{slug}', 'PageSectionsController@getVariations');
-    Route::post('/settings/{slug}/{save?}', 'PageSectionsController@postSettings');
-    Route::post('/console', 'PageSectionsController@getConsole');
-    Route::post('/make-active', 'PageSectionsController@postMakeActive');
-    Route::post('/upload', 'PageSectionsController@postUpload');
-    Route::get('/delete-variation/{slug}', 'PageSectionsController@postDeleteVariation');
-    Route::post('/delete', 'PageSectionsController@postDelete');
-});
-
-
-Route::group(['prefix' => 'gears1'], function () {
-    Route::get('/', 'GearsController@getIndex');
-
-    Route::group(['prefix' => 'units'], function () {
-        Route::get('/', 'UnitsController@getIndex');
-        Route::post('/upload', 'UnitsController@postUploadUnit');
-        Route::get('/delete-variation/{slug}', 'UnitsController@postDeleteVariation');
-        Route::get('/test/{slug?}', 'UnitsController@test');
-        Route::get('/settings/{slug?}', 'UnitsController@getSettings');
-        Route::get('/settings-iframe/{slug}/{settings?}', 'UnitsController@unitPreviewIframe');
-        Route::post('/settings/{id}/{save?}', 'UnitsController@postSettings');
-        Route::post('/delete', 'UnitsController@postDelete');
-    });
-    Route::get('/layouts', 'LayoutController@getIndex');
-    Route::get('/back-end', 'GearsController@getBackend');
-    Route::get('/front-end', 'GearsController@getFrontend');
-    Route::get('/gears-variations/{slug}', 'GearsController@getUiVariations');
-    Route::post('/gears-variations/{slug}', 'GearsController@postUiVariations');
-    Route::post('/widget-with-type', 'GearsController@postUiWithType');
-    Route::post('/upload-widget', 'GearsController@postUploadUi');
-    Route::get('/settings/{slug}', 'GearsController@getSettings');
-    Route::get('/settings-live/{slug}', 'GearsController@widgetPerview');
-    Route::get('/settings-iframe/{slug}/{settings?}', 'GearsController@widgetPerviewIframe');
-    Route::post('/settings-iframe/{id}/{save?}', 'GearsController@postSettings');
-    Route::post('/settings/{id}/{save?}', 'GearsController@postSettings');
-    Route::post('/delete', 'GearsController@postDelete');
-    Route::any('/delete-variation/{slug}', 'GearsController@getDeleteVariation');
-    Route::any('/make-default/{slug}', 'GearsController@getMakeDefault');
-    Route::any('/make-default-variation/{slug}', 'GearsController@getDefaultVariation');
-});
-
-Route::group(['prefix' => 'assets'], function () {
-    Route::get('/aaa', 'AssetsController@getIndex');
-    Route::group(['prefix' => 'bbb'], function () {
-        Route::get('/ccc', 'AssetsController@getIndex');
+Route::group(['prefix' => 'market'], function ($router) {
+    Route::get('/', 'MarketController@getIndex',true)->name('composer_market');
+    Route::group(['prefix' => 'composer'], function ($router) {
+        Route::get('/', 'ComposerController@getIndex',true)->name('composer_index');
+        Route::post('/main', 'ComposerController@getMain')->name('composer_main');
+        Route::post('plugin-on-off', 'ComposerController@getOnOff')->name('on_off');
     });
 });
-

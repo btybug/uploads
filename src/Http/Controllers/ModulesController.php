@@ -11,7 +11,7 @@
 
 namespace Btybug\Uploads\Http\Controllers;
 
-use Btybug\Cms\Services\RenderService;
+use Btybug\btybug\Services\RenderService;
 use Btybug\Uploads\Repository\Plugins;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -41,6 +41,7 @@ class ModulesController extends Controller
                 continue;
             }
         }
+
         $storage = $packages->getStorage();
         $enabled = true;
         if (isset($selected->name) && isset($storage[$selected->name])) {

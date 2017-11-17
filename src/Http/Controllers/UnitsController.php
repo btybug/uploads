@@ -4,10 +4,10 @@ use App\Http\Controllers\Controller;
 use File;
 use Illuminate\Http\Request;
 use Resources;
-use Btybug\Cms\Models\ContentLayouts\ContentLayouts;
-use Btybug\Cms\Models\Templates\Units;
-use Btybug\Cms\Services\CmsItemReader;
-use Btybug\Cms\Services\CmsItemUploader;
+use Btybug\btybug\Models\ContentLayouts\ContentLayouts;
+use Btybug\btybug\Models\Templates\Units;
+use Btybug\btybug\Services\CmsItemReader;
+use Btybug\btybug\Services\CmsItemUploader;
 use Btybug\Resources\Models\Validation as validateUpl;
 use View;
 

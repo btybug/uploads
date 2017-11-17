@@ -1,4 +1,4 @@
-@extends('cms::layouts.mTabs',['index'=>'upload_layouts'])
+@extends('btybug::layouts.mTabs',['index'=>'upload_layouts'])
 @section('tab')
     <div class="row">
         <div class="col-md-12">
@@ -146,7 +146,7 @@
             </div>
         </div>
     </div>
-    @include('cms::_partials.delete_modal')
+    @include('btybug::_partials.delete_modal')
 @stop
 @section('CSS')
     {!! HTML::style('public/css/new-store.css') !!}
