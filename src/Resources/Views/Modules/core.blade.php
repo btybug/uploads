@@ -8,14 +8,12 @@
             </h3>
             <hr>
             <ul class="list-unstyled menuList" id="components-list">
-                @if(count($plugins))
-                    @foreach($plugins as $plugin)
-                        <li class=" @if($selected->name==$plugin['name']) active @endif ">
-                            <a href="{!! route('plugins_index',['p'=>$plugin['name']]) !!}"> <span
-                                        class="module_icon"></span> {!! $plugin['name'] !!}</a>
-                        </li>
-                    @endforeach
-                @endif
+                @foreach($plugins as $plugin)
+                    <li class=" @if($selected->name==$plugin['name']) active @endif ">
+                        <a href="{!! route('modules_index',['p'=>$plugin['name']]) !!}"> <span
+                                    class="module_icon"></span> {!! $plugin['name'] !!}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
@@ -24,28 +22,12 @@
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-6">
-                            <a class="btn btn-sm  m-b-10 upload_module" href="{!! route('composer_market') !!}">
-                                <i class="fa fa-steam-square" aria-hidden="true"></i>
-                                <span class="upload_module_text">Market</span>
+                            <a class="btn  btn-info  m-b-10 upload_module" href="{!! route('update_cms') !!}">
+                                <i class="fa fa-refresh" aria-hidden="true"></i>
+                                <span class="upload_module_text">Update CMS</span>
 
                             </a>
                         </div>
-                        @if($selected)
-                            <div class="col-md-7">
-                                <p>
-                                    @if($enabled)
-                                        <a href="#" namespace="{!! $selected->name or null !!}" data-action="off"
-                                           class="btn  btn-sm  m-b-5 p-l-20 p-r-20 width-150 text-left enb-disb deactivate"><i
-                                                    class="fa fa-power-off f-s-14 m-r-10"></i> Deactivate</a>
-                                    @else
-                                        <a href="#" namespace="{!! $selected->name or null !!}" data-action="on"
-                                           style="background: #7fff00;color: #000000"
-                                           class="btn  btn-sm  m-b-5 p-l-20 p-r-20 width-150 text-left  enb-disb"><i
-                                                    class="fa fa-plug f-s-14 m-r-10"></i>Activate</a>
-                                    @endif
-                                </p>
-                            </div>
-                        @endif
                         <div class="col-xs-6">
                         </div>
                     </div>
@@ -69,7 +51,7 @@
                                    class="btn  btn-sm  m-b-5 p-l-20 p-r-20 width-150 text-left settings"><i
                                             class="fa fa-pencil f-s-14 m-r-10"></i> Settings</a>
                                 {{--@endif--}}
-                                <a href="{!! url('admin/avatar/plugins/'.$selected->name.'/explore') !!}"
+                                <a href="{!! url('admin/uploads/modules/'.$selected->name.'/explore') !!}"
                                    class="btn  btn-sm  m-b-5 p-l-20 p-r-20 width-150 text-left"><i
                                             class="fa fa-cogs f-s-14 m-r-10"></i>Explore</a>
                             </div>

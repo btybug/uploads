@@ -25,16 +25,16 @@ class ComposerController extends Controller
     {
         $plugin = $request->get('p');
         $path = $this->path;
-        return view('uploads::Composer.index', compact('plugin', 'path'));
+        return view('uploads::Composer.composer', compact('plugin', 'path'));
     }
 
 
     public function getStatus()
     {
         $output = array(
-            'composer' => file_exists(__DIR__ . '/../../../composer.phar'),
-            'composer_extracted' => file_exists(__DIR__ . '/../../../composer/extracted'),
-            'installer' => file_exists(__DIR__ . '/../../../installer.php'),
+            'composer' => file_exists(__DIR__ . '/../../composer.phar'),
+            'composer_extracted' => file_exists(__DIR__ . '/../../composer/extracted'),
+            'installer' => file_exists(__DIR__ . '/../../installer.php'),
         );
         return \Response::json($output);
 

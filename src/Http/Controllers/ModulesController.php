@@ -24,7 +24,11 @@ class ModulesController extends Controller
         return view('uploads::index');
     }
 
-    public function getIndex(Request $request)
+    public function getIndex()
+    {
+        return view('uploads::Modules.index');
+    }
+    public function getCoreModules(Request $request)
     {
 
         $selected = null;
@@ -47,7 +51,7 @@ class ModulesController extends Controller
         if (isset($selected->name) && isset($storage[$selected->name])) {
             $enabled = false;
         }
-        return view('uploads::Modules.index', compact('plugins', 'selected', 'enabled'));
+        return view('uploads::Modules.core', compact('plugins', 'selected', 'enabled'));
     }
 
     public function getExplore($repository, $package)

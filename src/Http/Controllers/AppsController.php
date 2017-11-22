@@ -20,7 +20,7 @@ use Symfony\Component\Console\Tests\Input\StringInput;
 
 class AppsController extends Controller
 {
-    public function getIndex(Request $request)
+    public function getCoreApps(Request $request)
     {
 
         $selected = null;
@@ -42,7 +42,11 @@ class AppsController extends Controller
         if (isset($selected->name) && isset($storage[$selected->name])) {
             $enabled = false;
         }
-        return view('uploads::Apps.index', compact('plugins', 'selected', 'enabled'));
+        return view('uploads::Apps.core', compact('plugins', 'selected', 'enabled'));
+    }
+    public function getIndex()
+    {
+        return view('uploads::Apps.index');
     }
     public function getExtra(Request $request)
     {
@@ -66,7 +70,7 @@ class AppsController extends Controller
         if (isset($selected->name) && isset($storage[$selected->name])) {
             $enabled = false;
         }
-        return view('uploads::Apps.index', compact('plugins', 'selected', 'enabled'));
+        return view('uploads::Apps.core', compact('plugins', 'selected', 'enabled'));
     }
 
     public function getExplore($repository, $package)

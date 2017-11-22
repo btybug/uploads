@@ -19,6 +19,10 @@ class MarketController extends Controller
 {
     public function getIndex()
     {
+        return view('uploads::Composer.index');
+    }
+    public function getPackages()
+    {
         // create curl resource
         $ch = curl_init();
 

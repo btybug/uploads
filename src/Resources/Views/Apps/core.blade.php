@@ -1,4 +1,4 @@
-@extends('btybug::layouts.mTabs',['index'=>'upload_modules'])
+@extends('btybug::layouts.mTabs',['index'=>'upload_apps'])
 @section('tab')
     <div class="row">
 
@@ -8,14 +8,12 @@
             </h3>
             <hr>
             <ul class="list-unstyled menuList" id="components-list">
-                @if(count($plugins))
-                    @foreach($plugins as $plugin)
-                        <li class=" @if($selected->name==$plugin['name']) active @endif ">
-                            <a href="{!! route('plugins_index',['p'=>$plugin['name']]) !!}"> <span
-                                        class="module_icon"></span> {!! $plugin['name'] !!}</a>
-                        </li>
-                    @endforeach
-                @endif
+                @foreach($plugins as $plugin)
+                    <li class=" @if($selected->name==$plugin['name']) active @endif ">
+                        <a href="{!! route('plugins_index',['p'=>$plugin['name']]) !!}"> <span
+                                    class="module_icon"></span> {!! $plugin['name'] !!}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
 
@@ -24,9 +22,9 @@
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-6">
-                            <a class="btn btn-sm  m-b-10 upload_module" href="{!! route('composer_market') !!}">
+                            <a class="btn btn-sm  m-b-10 upload_module" href="{!! route('composer_index') !!}">
                                 <i class="fa fa-steam-square" aria-hidden="true"></i>
-                                <span class="upload_module_text">Market</span>
+                                <span class="upload_module_text">Installer</span>
 
                             </a>
                         </div>

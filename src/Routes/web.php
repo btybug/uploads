@@ -19,12 +19,13 @@ Route::get('/', 'ModulesController@getChilds',true);
 //});
 
 Route::group(['prefix' => 'modules'], function () {
+
     Route::get('/', 'ModulesController@getIndex',true)->name('modules_index');
+    Route::get('/core-packages', 'ModulesController@getCoreModules',true)->name('core_packages');
     Route::get('/update-cms', 'ModulesController@getUpdateCms',true)->name('update_cms');
-//    Route::get('/', 'ModulesController@getIndex')->name('modules_index');
     Route::get('/{repository}/{package}/explore', 'ModulesController@getExplore',true);
 
-    Route::group(['prefix' => 'extra'], function () {
+    Route::group(['prefix' => 'extra-packages'], function () {
         Route::get('/', 'PluginsController@getIndex',true)->name('plugins_index');
         Route::get('/{repository}/{package}/explore', 'PluginsController@getExplore',true);
     });
@@ -32,9 +33,10 @@ Route::group(['prefix' => 'modules'], function () {
 
 Route::group(['prefix' => 'apps'], function ($router) {
     Route::get('/', 'AppsController@getIndex',true)->name('app_plugins');
+    Route::get('/core-apps', 'AppsController@getCoreApps',true)->name('core_apps');
     Route::get('/{repository}/{package}/explore', 'AppsController@getExplore',true);
 
-    Route::group(['prefix' => 'extra'], function () {
+    Route::group(['prefix' => 'extra-apps'], function () {
         Route::get('/', 'AppsController@getExtra',true)->name('app_extra');
         Route::get('/{repository}/{package}/explore', 'AppsController@getExplore',true);
     });
@@ -92,7 +94,8 @@ Route::group(['prefix' => 'assets'], function () {
 });
 
 Route::group(['prefix' => 'market'], function ($router) {
-    Route::get('/', 'MarketController@getIndex',true)->name('composer_market');
+    Route::get('/', 'MarketController@getIndex',true)->name('market_index');
+    Route::get('/packages', 'MarketController@getPackages',true)->name('composer_market');
     Route::group(['prefix' => 'composer'], function ($router) {
         Route::get('/', 'ComposerController@getIndex',true)->name('composer_index');
         Route::post('/main', 'ComposerController@getMain')->name('composer_main');
